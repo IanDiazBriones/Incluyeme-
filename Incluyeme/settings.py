@@ -125,3 +125,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 AUTH_USER_MODEL = 'users.CustomUser' # Dirección modelo Usuario Customizado
+LOGIN_REDIRECT_URL = '/'
