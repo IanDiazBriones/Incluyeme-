@@ -4,6 +4,7 @@
 			<div class="col-8">
 				{% if user.is_authenticated %}
 				Hola {{ user.username }}!
+				<a href="{% url 'logout' %}" class="header-link">Log-Out</a>
 				{% else %}
 				<div class="header-text">Login:</div>
 				<a href="{% url 'login' %}" class="header-link">Login</a>

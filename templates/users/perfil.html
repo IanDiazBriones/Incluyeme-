@@ -1,3 +1,4 @@
+{% extends 'pagStatic/header.html' %}
 {% block content %}
 {% load crispy_forms_tags %}
 <meta charset="utf-8">
@@ -12,17 +13,41 @@
       </div>
     </div>
     <div class="row justify-content-center">
-        <img src="cinqueterre.jpg" class="rounded-circle" alt="Foto">
+      <img src="cinqueterre.jpg" class="rounded-circle" alt="Foto">
     </div>
     
     <div class="row justify-content-center">
-        <span>{{ user.nombre }}</span>
+      <span>{{ user.nombre }}</span>
     </div>
     <div class="row justify-content-center">
-        <span>{{ user.email }}</span>
+      <span>{{ user.email }}</span>
     </div>
     <div class="row justify-content-center">
-        <span>{{ user.telefono }}</span>
+      <span>{{ user.telefono }}</span>
+    </div>
+    <div class="row justify-content-center">
+      <div class="table-responsive-sm">
+        <table class="table table-dark table-hover">
+          <tr>
+            <th class="text-center">Codigo</th>
+            <th class="text-center">Asiento</th>
+            <th class="text-center">Fecha Salida</th>
+            <th class="text-center">Hora Salida</th>
+            <th class="text-center">QR</th>
+          </tr>
+          {% for Pasaje in Pasajes %}
+          {% if Pasaje.Dueño == user %}
+          <tr> 
+            <td class="text-center">{{ Pasaje.Codigo }}</td>
+            <td class="text-center">{{ Pasaje.Asiento }}</td>
+            <td class="text-center">{{ Pasaje.Fecha_Salida }}</td>
+            <td class="text-center">{{ Pasaje.Hora_Salida }}</td>
+            <td class="text-center"><a class="btn btn-primary btn-block" href="#" role="button">Generar QR</a></td>
+          </tr>
+          {% endif %}
+          {% endfor %}
+        </table>
+      </div>
     </div>
   </body>
 

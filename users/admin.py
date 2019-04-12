@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
 from .forms import CustomUserCreationForm, CustomUserChangeForm
-from .models import CustomUser
+from .models import CustomUser, Pasaje
 
 class CustomUserAdmin(UserAdmin):
     add_form = CustomUserCreationForm
@@ -11,3 +11,4 @@ class CustomUserAdmin(UserAdmin):
     list_display = ['email', 'nombre', 'telefono'] #Campos a mostrar
 
 admin.site.register(CustomUser, CustomUserAdmin) # Funcion para registrar
+admin.site.register(Pasaje)

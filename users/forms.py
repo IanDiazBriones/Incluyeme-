@@ -8,10 +8,10 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta(UserCreationForm):
         model = CustomUser # Modelo a seguir dentro de models.py
-        fields = ('username','email', 'nombre', 'telefono') #Campos del formulario
+        fields = ('username', 'rut', 'email', 'nombre', 'telefono', 'foto') #Campos del formulario
 
 class CustomUserChangeForm(UserChangeForm):
 
     class Meta:
         model = CustomUser # Modelo a seguir dentro de models.py
-        fields = ('username','email', 'nombre', 'telefono') #Campos del formulario
+        fields = ('username', 'rut', 'email', 'nombre', 'telefono', 'foto') #Campos del formulario

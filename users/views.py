@@ -2,6 +2,7 @@ from .forms import CustomUserCreationForm
 from django.urls import reverse_lazy
 from django.views import generic
 from django.shortcuts import render
+from .models import *
 
 
 class SignUp(generic.CreateView):
@@ -11,4 +12,6 @@ class SignUp(generic.CreateView):
 
 # Create your views here.
 def Perfil(request):
-	return render(request, 'users/perfil.html')
+	Pasajes= Pasaje.objects.all()
+	context= {'Pasajes': Pasajes}
+	return render(request, 'users/perfil.html', context)
