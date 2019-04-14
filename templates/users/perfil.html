@@ -49,6 +49,19 @@
         </table>
       </div>
     </div>
+    <div class="container mt-2">
+      <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+          {% if user.es_admin == True %}
+          <td class="text-center"><a class="btn btn-primary btn-block" href="{% url 'valoracion_a' %}" role="button">Valoraciones</a></td>
+          {% else %}
+          <td class="text-center"><a class="btn btn-primary btn-block" href="{% url 'valoracion_n' %}" role="button">Valoraciones</a></td>
+          {% endif %}
+        </div>
+        <div class="col-4"></div>
+      </div>
+    </div>
   </body>
 
   {% endblock %}

@@ -10,6 +10,8 @@ class CustomUser(AbstractUser):
     nombre = models.CharField(max_length=35, default=' ')
     telefono = models.IntegerField(default='0')
     foto = models.ImageField(null=True, blank=True)
+    es_admin = models.BooleanField(default= False)
+
 
     REQUIRED_FIELDS = ['username'] # removes email from REQUIRED_FIELDS
 
@@ -20,3 +22,5 @@ class Pasaje(models.Model):
     Fecha_Salida = models.DateField()
     Hora_Salida = models.TimeField()
     Dueño = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+
+

@@ -15,3 +15,9 @@ def Perfil(request):
 	Pasajes= Pasaje.objects.all()
 	context= {'Pasajes': Pasajes}
 	return render(request, 'users/perfil.html', context)
+
+def Valoraciones_a(request):
+    return render(request, 'users/admin_v.html')
+def Valoraciones_n(request):
+    return render(request, 'users/normal_user_v.html')
+
