@@ -3,6 +3,8 @@ from django.urls import reverse_lazy
 from django.views import generic
 from django.shortcuts import render
 from .models import *
+from django.views.generic import UpdateView
+from .forms import *
 
 
 class SignUp(generic.CreateView):
@@ -17,7 +19,15 @@ def Perfil(request):
 	return render(request, 'users/perfil.html', context)
 
 def Valoraciones_a(request):
-    return render(request, 'users/admin_v.html')
+	Pasajes= Pasaje.objects.all()
+	context= {'Pasajes': Pasajes}
+	return render(request, 'users/admin_v.html', context)
+
 def Valoraciones_n(request):
     return render(request, 'users/normal_user_v.html')
 
+class ValoracionUpdate(UpdateView):
+    model = Pasaje
+    form_class = FormValoraciones
+    success_url = reverse_lazy('profile')
+    template_name = 'users/normal_user_v.html'

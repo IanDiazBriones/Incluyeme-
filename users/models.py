@@ -22,5 +22,13 @@ class Pasaje(models.Model):
     Fecha_Salida = models.DateField()
     Hora_Salida = models.TimeField()
     Dueño = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    Opciones_Valoraciones = (
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'))
+    Valoracion = models.IntegerField(default='0', choices=Opciones_Valoraciones)
+    
 
 
