@@ -50,7 +50,7 @@
             {% else %}
             <td class="text-center"><a class="btn btn-primary btn-block" href="http://127.0.0.1:8000/user/valoracion_n/{{ Pasaje.pk }}/" role="button">Valorar</a></td>
             {% endif %}
-            <td class="text-center"><a class="btn btn-primary btn-block" href="#" role="button">Generar QR</a></td>
+            <td class="text-center"><a class="btn btn-primary btn-block" href="http://127.0.0.1:8000/user/QR/{{ Pasaje.pk }}/{{ user.pk }}/" role="button">Generar QR</a></td>
           </tr>
           {% endif %}
           {% endfor %}
