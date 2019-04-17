@@ -31,3 +31,8 @@ class ValoracionUpdate(UpdateView):
     form_class = FormValoraciones
     success_url = reverse_lazy('profile')
     template_name = 'users/normal_user_v.html'
+
+def Lista_Usuarios(request):
+    usuario=CustomUser.objects.all()
+    context={'usuarios':usuario}
+    return render(request, 'users/user_list.html',context)

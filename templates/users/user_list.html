@@ -1,0 +1,35 @@
+
+{% block content %}
+{% load crispy_forms_tags %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Usuario</td>
+            <td>Rut</td>
+            <td>Email</td>
+            <td>Nombre</td>
+            <td>Telefono</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% if usuarios %}
+        {% for usuario in usuarios %}
+        <tr>
+            <td>{{ usuario.username }}</td>
+            <td>{{ usuario.rut }}</td>
+            <td>{{ usuario.email }}</td>
+            <td>{{ usuario.nombre }}</td>
+            <td>{{ usuario.telefono }}</td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <h4>No hay usuarios</h4>
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}
