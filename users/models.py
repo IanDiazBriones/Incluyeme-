@@ -5,15 +5,22 @@ class CustomUser(AbstractUser):
     # Campos usuario customizado
     USERNAME_FIELD = 'email'
     username = models.CharField(max_length=150, unique=True)
+    rut = models.CharField(max_length=150)
     email = models.EmailField(unique=True)
     nombre = models.CharField(max_length=35, default=' ')
     telefono = models.IntegerField(default='0')
+    foto = models.ImageField(null=True, blank=True)
+    es_admin = models.BooleanField(default= False)
+
+
     REQUIRED_FIELDS = ['username'] # removes email from REQUIRED_FIELDS
 
 
 class Pasaje(models.Model):
-    # Campos usuario customizado
     Codigo = models.CharField(max_length=150, unique=True)
     Asiento = models.IntegerField(default='0')
-    Hora_Salida = models.DateField()
-    Fecha_Salida = models.TimeField()
+    Fecha_Salida = models.DateField()
+    Hora_Salida = models.TimeField()
+    Dueño = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+
+
