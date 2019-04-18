@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser #Libreria para cambio usuario por defecto
 from django.db import models
+from Buses.models import Bus
 
 class CustomUser(AbstractUser):
     # Campos usuario customizado
@@ -21,6 +22,7 @@ class Pasaje(models.Model):
     Asiento = models.IntegerField(default='0')
     Fecha_Salida = models.DateField()
     Hora_Salida = models.TimeField()
+    PatenteBus = models.ForeignKey(Bus, on_delete=models.CASCADE)
     Dueño = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     Opciones_Valoraciones = (
         (1, '1'),

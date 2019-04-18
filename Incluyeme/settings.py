@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'Buses.apps.BusesConfig',
     'users.apps.UsersConfig', # App para Usuario Custom
     'pagStatic', # App para paginas Estaticas
     'crispy_forms', # Libreria Bootstrap 4
