@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig', # App para Usuario Custom
     'pagStatic', # App para paginas Estaticas
     'crispy_forms', # Libreria Bootstrap 4
+    'Buses.apps.BusesConfig',
+    'qr_code', # Libreria Codigo QR
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

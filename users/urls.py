@@ -7,5 +7,6 @@ urlpatterns = [
 	path('valoracion_n', views.Valoraciones_n, name='valoracion_n'),
 	path('valoracion_n/<int:pk>/', views.ValoracionUpdate.as_view(), name='valoracion_edit'),
 	path('listar',views.Lista_Usuarios,name='LISTAUSUARIOS'),
+	path('QR/<int:IdentificadorPas>/<int:IdentificadorUsu>/', views.CreateQRCode, name='QR'),
 
 ]

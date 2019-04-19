@@ -36,3 +36,23 @@ def Lista_Usuarios(request):
     usuario=CustomUser.objects.all()
     context={'usuarios':usuario}
     return render(request, 'users/user_list.html',context)
+
+def CreateQRCode(request, IdentificadorPas, IdentificadorUsu):
+    Pasajes= Pasaje.objects.get(pk = IdentificadorPas)
+    Usuario= CustomUser.objects.get(pk = IdentificadorUsu)
+    Nombre = str(Usuario.nombre)
+    Rut = str(Usuario.rut)
+    Telefono = str(Usuario.telefono)
+    Codigo = str(Pasajes.Codigo)
+    Asiento = str(Pasajes.Asiento)
+    Fecha = str(Pasajes.Fecha_Salida)
+    Hora = str(Pasajes.Hora_Salida)
+    StringQR = str(Codigo+"/"
+                   +Asiento+"/"
+                   +Fecha+"/"
+                   +Hora+"/"
+                   +Nombre+"/"
+                   +Rut+"/"
+                   +Telefono+"/")
+    context= {'QRString': StringQR}
+    return render(request, 'users/QR.html', context)
