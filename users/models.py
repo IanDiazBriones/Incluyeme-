@@ -10,7 +10,7 @@ class CustomUser(AbstractUser):
     email = models.EmailField(unique=True)
     nombre = models.CharField(max_length=35, default=' ')
     telefono = models.IntegerField(default='0')
-    foto = models.ImageField(null=True, blank=True)
+    foto = models.ImageField(null=True, blank=True, upload_to='photos/')
     es_admin = models.BooleanField(default= False)
 
 

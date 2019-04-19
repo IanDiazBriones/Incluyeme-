@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <img src="cinqueterre.jpg" class="rounded-circle" alt="Foto">
+      <img src="{{ user.foto.url }}" alt="Foto">
     </div>
     
     <div class="row justify-content-center">
@@ -66,7 +66,7 @@
           {% if user.es_admin == True %}
           <td class="text-center"><a class="btn btn-primary btn-block" href="{% url 'valoracion_a' %}" role="button">Valoraciones</a></td>
           {% else %}
-          <td class="text-center"><a class="btn btn-primary btn-block" href="{% url 'valoracion_n' %}" role="button">Valoraciones</a></td>
+          <td class="text-center"><a class="btn btn-primary btn-block" href="{% url 'valoracion_n' %}" role="button">Agregar Pasaje</a></td>
           {% endif %}
         </div>
         <div class="col-4"></div>
