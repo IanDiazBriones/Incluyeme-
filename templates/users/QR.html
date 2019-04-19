@@ -1,4 +1,5 @@
 {% block content %}
+{% load i18n %}
 {% load crispy_forms_tags %}
 {% load qr_code %}
 <meta charset="utf-8">
@@ -10,7 +11,7 @@
  	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-8">
-				<h1 class="mt-2", align="center">Su Pasaje QR Generado :</h1>
+				<h1 class="mt-2", align="center">{% trans "Su pasaje está siendo generado:" %}</h1>
 				<hr class="mt-0 mb-4">
 			</div>
 		</div>
@@ -18,7 +19,7 @@
 			<div>
                 <h1 align="center">
 				{% qr_from_text  QRString   size="m" %}
-                    <td class="text-center"><a class="btn btn-primary btn-block" href="{% url 'profile' %}" role="button">Volver atrás</a></td>
+                    <td class="text-center"><a class="btn btn-primary btn-block" href="{% url 'profile' %}" role="button">{% trans "Volver atrás" %}</a></td>
                 </h1>
 			</div>
 		</div>
