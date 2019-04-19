@@ -42,7 +42,9 @@ def CreateQRCode(request, IdentificadorPas, IdentificadorUsu):
     Usuario= CustomUser.objects.get(pk = IdentificadorUsu)
     Nombre = str(Usuario.nombre)
     Rut = str(Usuario.rut)
+    Email = str(Usuario.email)
     Telefono = str(Usuario.telefono)
+    Destino = str(Pasajes.Destino)
     Codigo = str(Pasajes.Codigo)
     Asiento = str(Pasajes.Asiento)
     Fecha = str(Pasajes.Fecha_Salida)
@@ -51,8 +53,10 @@ def CreateQRCode(request, IdentificadorPas, IdentificadorUsu):
                    +Asiento+"/"
                    +Fecha+"/"
                    +Hora+"/"
+                   +Destino+"/"              
                    +Nombre+"/"
                    +Rut+"/"
+                   +Email+"/"
                    +Telefono+"/")
     context= {'QRString': StringQR}
     return render(request, 'users/QR.html', context)

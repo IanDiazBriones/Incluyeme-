@@ -24,6 +24,7 @@ class Pasaje(models.Model):
     Hora_Salida = models.TimeField()
     PatenteBus = models.ForeignKey(Bus, on_delete=models.CASCADE)
     Dueño = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    Destino = models.CharField(max_length=150)
     Opciones_Valoraciones = (
         (1, '1'),
         (2, '2'),
