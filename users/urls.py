@@ -1,5 +1,6 @@
 from . import views
 from django.urls import path, include # new
+from users.views import SMSNotificacionDia
 urlpatterns = [
 	path('', views.SignUp.as_view(), name='signup'),
 	path('perfil', views.Perfil, name='profile'),
@@ -10,3 +11,9 @@ urlpatterns = [
 	path('QR/<int:IdentificadorPas>/<int:IdentificadorUsu>/', views.CreateQRCode, name='QR'),
 
 ]
+
+
+# Para que se empiece el proceso de tareas se debe ejecutar por consola "python manager.py process_tasks"
+# repeat = cada cuanto se ejecutara la tarea en segundos
+# repeat_until = cuantas veces se repetira (None = para siempre)
+SMSNotificacionDia(repeat=60,repeat_until=None)

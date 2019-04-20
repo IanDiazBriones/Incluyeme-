@@ -5,7 +5,9 @@ from django.shortcuts import render
 from .models import *
 from django.views.generic import UpdateView
 from .forms import *
-
+from background_task import background
+from datetime import date
+from datetime import datetime
 
 class SignUp(generic.CreateView):
     form_class = CustomUserCreationForm
@@ -60,3 +62,20 @@ def CreateQRCode(request, IdentificadorPas, IdentificadorUsu):
                    +Telefono+"/")
     context= {'QRString': StringQR}
     return render(request, 'users/QR.html', context)
+
+#Retraso desde que se encolo la tarea, para que el sistema la ejecute
+@background(schedule=5)
+def SMSNotificacionDia():
+  #Traer los objetos pasajes de la BD
+  Pasajes= Pasaje.objects.all()
+  #Por cada uno de los pasajes dentro del array
+  for var in Pasajes:
+    #Condiciones que la fecha de hoy sea igual a la fecha de salida del pasaje
+    #y que no se enviara una notificacion anteriormente 
+    if (date.today() == var.Fecha_Salida and var.NotificacionDiaEnv == False):
+      #Codigo del envio del sms
+      print(var.Fecha_Salida)
+      print(var.NotificacionDiaEnv)
+      #Se actualiza el pasaje cambiando la variable de notificacion a True
+      var.EnvioNotificacionDia();
+      

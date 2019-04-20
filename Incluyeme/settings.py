@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'crispy_forms', # Libreria Bootstrap 4
     'Buses.apps.BusesConfig',
     'qr_code', # Libreria Codigo QR
+    'background_task',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -76,6 +77,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

@@ -15,10 +15,10 @@
     </div>
     <div class="row justify-content-center">
     	<div class="col-4">
-      {% if user.foto != "" %}
-      <img src="{{ user.foto.url }}" class="mx-auto d-block img-fluid rounded" alt="Foto">
-      {% endif %}
-        </div>
+        {% if user.foto != "" %}
+        <img src="{{ user.foto.url }}" class="mx-auto d-block img-fluid rounded" alt="Foto">
+        {% endif %}
+      </div>
     </div>
 
     <div class="row justify-content-center">
@@ -76,7 +76,7 @@
           <a class="btn btn-primary btn-block" href="{% url 'valoracion_n' %}" role="button">{% trans "Agregar pasaje" %}</a>
           {% endif %}
         </div>
-    </div>
- </body>
+      </div>
+    </body>
 
-  {% endblock %}
+    {% endblock %}
