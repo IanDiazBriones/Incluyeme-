@@ -18,7 +18,7 @@
       <img src="{{ user.foto.url }}" alt="Foto">
       {% endif %}
     </div>
-    
+
     <div class="row justify-content-center">
       <span>{{ user.nombre }}</span>
     </div>
@@ -44,7 +44,7 @@
           </tr>
           {% for Pasaje in Pasajes %}
           {% if Pasaje.Dueño == user %}
-          <tr> 
+          <tr>
             <td class="text-center">{{ Pasaje.Codigo }}</td>
             <td class="text-center">{{ Pasaje.Asiento }}</td>
             <td class="text-center">{{ Pasaje.Fecha_Salida }}</td>
@@ -52,11 +52,11 @@
             <td class="text-center">{{ Pasaje.Valoracion }}</td>
             <td class="text-center">{{ Pasaje.PatenteBus }}</td>
             {% if Pasaje.Valoracion != 0 %}
-            <td class="text-center"><a class="btn btn-primary btn-block disabled" href="http://127.0.0.1:8000/user/valoracion_n/{{ Pasaje.pk }}/" role="button">Valorar</a></td>
+            <td class="text-center"><a class="btn btn-primary btn-block disabled" href="http://127.0.0.1:8000/user/valoracion_n/{{ Pasaje.pk }}/" role="button">{% trans "Valorar" %}</a></td>
             {% else %}
-            <td class="text-center"><a class="btn btn-primary btn-block" href="http://127.0.0.1:8000/user/valoracion_n/{{ Pasaje.pk }}/" role="button">Valorar</a></td>
+            <td class="text-center"><a class="btn btn-primary btn-block" href="http://127.0.0.1:8000/user/valoracion_n/{{ Pasaje.pk }}/" role="button">{% trans "Valorar" %}</a></td>
             {% endif %}
-            <td class="text-center"><a class="btn btn-primary btn-block" href="http://127.0.0.1:8000/user/QR/{{ Pasaje.pk }}/{{ user.pk }}/" role="button">Generar QR</a></td>
+            <td class="text-center"><a class="btn btn-primary btn-block" href="http://127.0.0.1:8000/user/QR/{{ Pasaje.pk }}/{{ user.pk }}/" role="button">{% trans "Generar QR" %}</a></td>
 
           {% endif %}
           {% endfor %}
@@ -69,15 +69,15 @@
         <div class="col-4"></div>
         <div class="col-4">
           {% if user.es_admin == True %}
-          <td class="text-center"><a class="btn btn-primary btn-block" href="{% url 'valoracion_a' %}" role="button">Valoraciones</a></td>
-          <td class="text-center"><a class="btn btn-primary btn-block" href="{% url 'LISTAUSUARIOS' %}" role="button">Datos Usuarios</a></td>
+          <td class="text-center"><a class="btn btn-primary btn-block" href="{% url 'valoracion_a' %}" role="button">{% trans "Valoraciones" %}</a></td>
+          <td class="text-center"><a class="btn btn-primary btn-block" href="{% url 'LISTAUSUARIOS' %}" role="button">{% trans "Datos de usuario" %}</a></td>
           {% else %}
-          <td class="text-center"><a class="btn btn-primary btn-block" href="{% url 'valoracion_n' %}" role="button">Agregar Pasaje</a></td>
+          <td class="text-center"><a class="btn btn-primary btn-block" href="{% url 'valoracion_n' %}" role="button">{% trans "Agregar pasaje" %}</a></td>
           {% endif %}
         </div>
         <div class="col-4"></div>
       </div>
     </div>
-  </body>
+ </body>
 
   {% endblock %}
