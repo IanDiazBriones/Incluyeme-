@@ -1,4 +1,5 @@
 {% extends 'pagStatic/header.html' %}
+{% load i18n %}
 {% block content %}
 {% load crispy_forms_tags %}
 <meta charset="utf-8">
@@ -8,7 +9,7 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-8">
-        <h1 class="mt-2">Mi Perfil</h1>
+        <h1 class="mt-2">{% trans "Mi perfil" %}</h1>
         <hr class="mt-0 mb-4">
       </div>
     </div>
@@ -17,7 +18,7 @@
       <img src="{{ user.foto.url }}" alt="Foto">
       {% endif %}
     </div>
-    
+
     <div class="row justify-content-center">
       <span>{{ user.nombre }}</span>
     </div>
@@ -32,18 +33,18 @@
         {% if user.es_admin != True %}
         <table class="table table-dark table-hover">
           <tr>
-            <th class="text-center">Codigo</th>
-            <th class="text-center">Asiento</th>
-            <th class="text-center">Fecha Salida</th>
-            <th class="text-center">Hora Salida</th>
-            <th class="text-center">Valoracion</th>
-            <th class="text-center">Bus Patente</th>
-            <th class="text-center">Valorar</th>
+            <th class="text-center">{% trans "Codigo" %}</th>
+            <th class="text-center">{% trans "Asiento" %}</th>
+            <th class="text-center">{% trans "Fecha salida" %}</th>
+            <th class="text-center">{% trans "Hora salida" %}</th>
+            <th class="text-center">{% trans "Valoracion" %}</th>
+            <th class="text-center">{% trans "Bus patente" %}</th>
+            <th class="text-center">{% trans "Valorar" %}</th>
             <th class="text-center">QR</th>
           </tr>
           {% for Pasaje in Pasajes %}
           {% if Pasaje.Dueño == user %}
-          <tr> 
+          <tr>
             <td class="text-center">{{ Pasaje.Codigo }}</td>
             <td class="text-center">{{ Pasaje.Asiento }}</td>
             <td class="text-center">{{ Pasaje.Fecha_Salida }}</td>
@@ -51,11 +52,11 @@
             <td class="text-center">{{ Pasaje.Valoracion }}</td>
             <td class="text-center">{{ Pasaje.PatenteBus }}</td>
             {% if Pasaje.Valoracion != 0 %}
-            <td class="text-center"><a class="btn btn-primary btn-block disabled" href="http://127.0.0.1:8000/user/valoracion_n/{{ Pasaje.pk }}/" role="button">Valorar</a></td>
+            <td class="text-center"><a class="btn btn-primary btn-block disabled" href="http://127.0.0.1:8000/user/valoracion_n/{{ Pasaje.pk }}/" role="button">{% trans "Valorar" %}</a></td>
             {% else %}
-            <td class="text-center"><a class="btn btn-primary btn-block" href="http://127.0.0.1:8000/user/valoracion_n/{{ Pasaje.pk }}/" role="button">Valorar</a></td>
+            <td class="text-center"><a class="btn btn-primary btn-block" href="http://127.0.0.1:8000/user/valoracion_n/{{ Pasaje.pk }}/" role="button">{% trans "Valorar" %}</a></td>
             {% endif %}
-            <td class="text-center"><a class="btn btn-primary btn-block" href="http://127.0.0.1:8000/user/QR/{{ Pasaje.pk }}/{{ user.pk }}/" role="button">Generar QR</a></td>
+            <td class="text-center"><a class="btn btn-primary btn-block" href="http://127.0.0.1:8000/user/QR/{{ Pasaje.pk }}/{{ user.pk }}/" role="button">{% trans "Generar QR" %}</a></td>
 
           {% endif %}
           {% endfor %}
@@ -68,15 +69,15 @@
         <div class="col-4"></div>
         <div class="col-4">
           {% if user.es_admin == True %}
-          <td class="text-center"><a class="btn btn-primary btn-block" href="{% url 'valoracion_a' %}" role="button">Valoraciones</a></td>
-          <td class="text-center"><a class="btn btn-primary btn-block" href="{% url 'LISTAUSUARIOS' %}" role="button">Datos Usuarios</a></td>
+          <td class="text-center"><a class="btn btn-primary btn-block" href="{% url 'valoracion_a' %}" role="button">{% trans "Valoraciones" %}</a></td>
+          <td class="text-center"><a class="btn btn-primary btn-block" href="{% url 'LISTAUSUARIOS' %}" role="button">{% trans "Datos de usuario" %}</a></td>
           {% else %}
-          <td class="text-center"><a class="btn btn-primary btn-block" href="{% url 'valoracion_n' %}" role="button">Agregar Pasaje</a></td>
+          <td class="text-center"><a class="btn btn-primary btn-block" href="{% url 'valoracion_n' %}" role="button">{% trans "Agregar pasaje" %}</a></td>
           {% endif %}
         </div>
         <div class="col-4"></div>
       </div>
     </div>
-  </body>
+ </body>
 
   {% endblock %}
