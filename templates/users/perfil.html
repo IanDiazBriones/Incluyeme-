@@ -14,9 +14,11 @@
       </div>
     </div>
     <div class="row justify-content-center">
+    	<div class="col-4">
       {% if user.foto != "" %}
-      <img src="{{ user.foto.url }}" alt="Foto">
+      <img src="{{ user.foto.url }}" class="mx-auto d-block img-fluid rounded" alt="Foto">
       {% endif %}
+        </div>
     </div>
 
     <div class="row justify-content-center">
@@ -57,7 +59,7 @@
             <td class="text-center"><a class="btn btn-primary btn-block" href="http://127.0.0.1:8000/user/valoracion_n/{{ Pasaje.pk }}/" role="button">{% trans "Valorar" %}</a></td>
             {% endif %}
             <td class="text-center"><a class="btn btn-primary btn-block" href="http://127.0.0.1:8000/user/QR/{{ Pasaje.pk }}/{{ user.pk }}/" role="button">{% trans "Generar QR" %}</a></td>
-
+          </tr>
           {% endif %}
           {% endfor %}
         </table>
@@ -65,18 +67,15 @@
       </div>
     </div>
     <div class="container mt-2">
-      <div class="row">
-        <div class="col-4"></div>
-        <div class="col-4">
+      <div class="row justify-content-center">
+        <div class="col-md-4 col-lg-2">
           {% if user.es_admin == True %}
-          <td class="text-center"><a class="btn btn-primary btn-block" href="{% url 'valoracion_a' %}" role="button">{% trans "Valoraciones" %}</a></td>
-          <td class="text-center"><a class="btn btn-primary btn-block" href="{% url 'LISTAUSUARIOS' %}" role="button">{% trans "Datos de usuario" %}</a></td>
+          <a class="btn btn-primary btn-block" href="{% url 'valoracion_a' %}" role="button">{% trans "Valoraciones" %}</a>
+          <a class="btn btn-primary btn-block" href="{% url 'LISTAUSUARIOS' %}" role="button">{% trans "Datos de usuario" %}</a>
           {% else %}
-          <td class="text-center"><a class="btn btn-primary btn-block" href="{% url 'valoracion_n' %}" role="button">{% trans "Agregar pasaje" %}</a></td>
+          <a class="btn btn-primary btn-block" href="{% url 'valoracion_n' %}" role="button">{% trans "Agregar pasaje" %}</a>
           {% endif %}
         </div>
-        <div class="col-4"></div>
-      </div>
     </div>
  </body>
 
