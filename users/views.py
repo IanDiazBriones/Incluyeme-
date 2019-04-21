@@ -9,7 +9,6 @@ from background_task import background
 from datetime import date
 from datetime import datetime
 from twilio.rest import Client
-#import config
 import smtplib
 
 class SignUp(generic.CreateView):
@@ -86,25 +85,25 @@ def SMSNotificacionDia():
       message = client.messages.create(
           to=str("+"+str(var.Dueño.telefono)),
           from_="+56931402392",
-          body=("Hoy es el día de su viaje destino a: "+ var.Destino+ "Hora: "+str(var.Hora_Salida)+" Asiento: "+ str(var.Asiento))
+          body=("Hoy es el dia de su viaje destino a: "+ var.Destino+ "Hora: "+str(var.Hora_Salida)+" Asiento: "+ str(var.Asiento))
       )
 
       print(message.sid)
 
 
-      #Remitente = 'milos.incluyeme@gmail.com'
-      #Destinatario = var.email
-      #Pass = 'incluyeme123'
+      Remitente = 'milos.incluyeme@gmail.com'
+      Destinatario = var.Dueño.email
+      Pass = 'incluyeme123'
 
-      #message = ("Hoy es el día de su viaje destino a:"+ var.Destino+ "Hora: "+ var.Hora_Salida+ "Asiento: "+ var.Asiento)
-      #subject = 'Recordatorio de viaje'
-      #message = 'Subject: {} \n\n'.format(subject, message)
+      message = ("Hoy es el dia de su viaje destino a: " + var.Destino + " Hora: "+ str(var.Hora_Salida) + " Asiento: " + str(var.Asiento))
+      subject = 'Recordatorio de viaje'
+      message = 'Subject: {}\n\n{}'.format(subject, message)
 
-      #server = smtplib.SMTP('smtp.gmail.com', 587)
-      #server.starttls()
-      #server.login(config.Remitente, config.Pass)
-      #server.sendmail(config.Remitente, config.Destinatario, message)
-      #server.quit()
+      server = smtplib.SMTP('smtp.gmail.com', 587)
+      server.starttls()
+      server.login(Remitente, Pass)
+      server.sendmail(Remitente, Destinatario, message)
+      server.quit()
 
       #Se actualiza el pasaje cambiando la variable de notificacion a True
       var.EnvioNotificacionDia();
