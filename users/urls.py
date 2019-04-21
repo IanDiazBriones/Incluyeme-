@@ -1,6 +1,6 @@
 from . import views
 from django.urls import path, include # new
-from users.views import SMSNotificacionDia
+from users.views import SMSNotificacionDia, SMSNotificacion2HRS
 urlpatterns = [
 	path('', views.SignUp.as_view(), name='signup'),
 	path('perfil', views.Perfil, name='profile'),
@@ -17,3 +17,5 @@ urlpatterns = [
 # repeat = cada cuanto se ejecutara la tarea en segundos
 # repeat_until = cuantas veces se repetira (None = para siempre)
 SMSNotificacionDia(repeat=86400,repeat_until=None)
+
+SMSNotificacion2HRS(repeat=7200,repeat_until=None)

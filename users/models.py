@@ -39,6 +39,10 @@ class Pasaje(models.Model):
     def EnvioNotificacionDia(self):
         self.NotificacionDiaEnv = True
         self.save()
+
+    def EnvioNotificacionHoras(self):
+        self.NotificacionHorasEnv = True
+        self.save()
     
 
 
