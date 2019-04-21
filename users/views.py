@@ -8,6 +8,9 @@ from .forms import *
 from background_task import background
 from datetime import date
 from datetime import datetime
+from twilio.rest import Client
+#import config
+import smtplib
 
 class SignUp(generic.CreateView):
     form_class = CustomUserCreationForm
@@ -74,33 +77,34 @@ def SMSNotificacionDia():
     #y que no se enviara una notificacion anteriormente 
     if (date.today() == var.Fecha_Salida and var.NotificacionDiaEnv == False):
       #Codigo del envio del sms
-      from twilio.rest import Client
-      import config
-      import smtplib
-
+      
+      print("Codigo Pasaje = " + str(var.Codigo))
       account_sid = "AC84429c3da0aa504611715dc493a4da27"
       auth_token = "54734ace15a8644e16cde985e0f895a4"
       client = Client(account_sid, auth_token)
+
       message = client.messages.create(
-          to=var.telefono,
+          to=str("+"+str(var.Dueño.telefono)),
           from_="+56931402392",
-          body=("Hoy es el día de su viaje destino a:"+ var.Destino+ "Hora: "+ var.Hora_Salida+ "Asiento: "+ var.Asiento)
+          body=("Hoy es el día de su viaje destino a: "+ var.Destino+ "Hora: "+str(var.Hora_Salida)+" Asiento: "+ str(var.Asiento))
       )
+
       print(message.sid)
 
-      Remitente = 'milos.incluyeme@gmail.com'
-      Destinatario = var.email
-      Pass = 'incluyeme123'
 
-      message = ("Hoy es el día de su viaje destino a:"+ var.Destino+ "Hora: "+ var.Hora_Salida+ "Asiento: "+ var.Asiento)
-      subject = 'Recordatorio de viaje'
-      message = 'Subject: {} \n\n'.format(subject, message)
+      #Remitente = 'milos.incluyeme@gmail.com'
+      #Destinatario = var.email
+      #Pass = 'incluyeme123'
 
-      server = smtplib.SMTP('smtp.gmail.com', 587)
-      server.starttls()
-      server.login(config.Remitente, config.Pass)
-      server.sendmail(config.Remitente, config.Destinatario, message)
-      server.quit()
+      #message = ("Hoy es el día de su viaje destino a:"+ var.Destino+ "Hora: "+ var.Hora_Salida+ "Asiento: "+ var.Asiento)
+      #subject = 'Recordatorio de viaje'
+      #message = 'Subject: {} \n\n'.format(subject, message)
+
+      #server = smtplib.SMTP('smtp.gmail.com', 587)
+      #server.starttls()
+      #server.login(config.Remitente, config.Pass)
+      #server.sendmail(config.Remitente, config.Destinatario, message)
+      #server.quit()
 
       #Se actualiza el pasaje cambiando la variable de notificacion a True
       var.EnvioNotificacionDia();
