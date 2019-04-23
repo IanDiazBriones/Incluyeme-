@@ -1,0 +1,82 @@
+{% extends 'pagStatic/header.html' %}
+{% load i18n %}
+{% block content %}
+{% load crispy_forms_tags %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-8">
+        <h1 class="mt-2">{% trans "Mi perfil" %}</h1>
+        <hr class="mt-0 mb-4">
+      </div>
+    </div>
+    <div class="row justify-content-center">
+    	<div class="col-4">
+        {% if user.foto != "" %}
+        <img src="{{ user.foto.url }}" class="mx-auto d-block img-fluid rounded" alt="Foto">
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <span>{{ user.nombre }}</span>
+    </div>
+    <div class="row justify-content-center">
+      <span>{{ user.email }}</span>
+    </div>
+    <div class="row justify-content-center">
+      <span>{{ user.telefono }}</span>
+    </div>
+    <div class="row justify-content-center">
+      <div class="table-responsive-sm">
+        {% if user.es_admin != True %}
+        <table class="table table-dark table-hover">
+          <tr>
+            <th class="text-center">{% trans "Codigo" %}</th>
+            <th class="text-center">{% trans "Asiento" %}</th>
+            <th class="text-center">{% trans "Fecha salida" %}</th>
+            <th class="text-center">{% trans "Hora salida" %}</th>
+            <th class="text-center">{% trans "Valoracion" %}</th>
+            <th class="text-center">{% trans "Bus patente" %}</th>
+            <th class="text-center">{% trans "Valorar" %}</th>
+            <th class="text-center">QR</th>
+          </tr>
+          {% for Pasaje in Pasajes %}
+          {% if Pasaje.Dueño == user %}
+          <tr>
+            <td class="text-center">{{ Pasaje.Codigo }}</td>
+            <td class="text-center">{{ Pasaje.Asiento }}</td>
+            <td class="text-center">{{ Pasaje.Fecha_Salida }}</td>
+            <td class="text-center">{{ Pasaje.Hora_Salida }}</td>
+            <td class="text-center">{{ Pasaje.Valoracion }}</td>
+            <td class="text-center">{{ Pasaje.PatenteBus }}</td>
+            {% if Pasaje.Valoracion != 0 %}
+            <td class="text-center"><a class="btn btn-primary btn-block disabled" href="http://127.0.0.1:8000/user/valoracion_n/{{ Pasaje.pk }}/" role="button">{% trans "Valorar" %}</a></td>
+            {% else %}
+            <td class="text-center"><a class="btn btn-primary btn-block" href="http://127.0.0.1:8000/user/valoracion_n/{{ Pasaje.pk }}/" role="button">{% trans "Valorar" %}</a></td>
+            {% endif %}
+            <td class="text-center"><a class="btn btn-primary btn-block" href="http://127.0.0.1:8000/user/QR/{{ Pasaje.pk }}/{{ user.pk }}/" role="button">{% trans "Generar QR" %}</a></td>
+          </tr>
+          {% endif %}
+          {% endfor %}
+        </table>
+        {% endif %}
+      </div>
+    </div>
+    <div class="container mt-2">
+      <div class="row justify-content-center">
+        <div class="col-md-4 col-lg-2">
+          {% if user.es_admin == True %}
+          <a class="btn btn-primary btn-block" href="{% url 'valoracion_a' %}" role="button">{% trans "Valoraciones" %}</a>
+          <a class="btn btn-primary btn-block" href="{% url 'LISTAUSUARIOS' %}" role="button">{% trans "Datos de usuario" %}</a>
+          {% else %}
+          <a class="btn btn-primary btn-block" href="{% url 'valoracion_n' %}" role="button">{% trans "Agregar pasaje" %}</a>
+          {% endif %}
+        </div>
+      </div>
+    </body>
+
+    {% endblock %}

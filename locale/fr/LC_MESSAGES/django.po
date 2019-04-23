@@ -1,0 +1,164 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-19 21:12-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: .\Incluyeme\settings.py:131
+msgid "Español"
+msgstr "Espagnol"
+
+#: .\Incluyeme\settings.py:132
+msgid "Frances"
+msgstr "Français"
+
+#: .\templates\pagStatic\index.html:30
+msgid "Ir"
+msgstr "Aller"
+
+#: .\templates\pagStatic\index.html:48 .\templates\pagStatic\index.html:50
+#: .\templates\users\perfil.html:12
+msgid "Mi perfil"
+msgstr "Mon profil"
+
+#: .\templates\pagStatic\index.html:62
+msgid "Ubicacion"
+msgstr "Emplacement"
+
+#: .\templates\pagStatic\index.html:73
+msgid "Subastas"
+msgstr "enchères"
+
+#: .\templates\registration\login.html:13
+#: .\templates\registration\login.html:19
+msgid "Iniciar sesión"
+msgstr "Commencer la session"
+
+#: .\templates\users\QR.html:14
+msgid "Su pasaje está siendo generado:"
+msgstr "Votre passage est généré:"
+
+#: .\templates\users\QR.html:22 .\templates\users\admin_v.html:45
+#: .\templates\users\admin_v.html:67
+msgid "Volver atrás"
+msgstr "retourner en arrière"
+
+#: .\templates\users\admin_v.html:13
+msgid "Estadisticas de los viajes"
+msgstr "Statistiques de voyage"
+
+#: .\templates\users\admin_v.html:21 .\templates\users\perfil.html:36
+msgid "Codigo"
+msgstr "Code"
+
+#: .\templates\users\admin_v.html:22 .\templates\users\perfil.html:37
+msgid "Asiento"
+msgstr "Siège"
+
+#: .\templates\users\admin_v.html:23
+msgid "Fecha de salida"
+msgstr "Date de sortie"
+
+#: .\templates\users\admin_v.html:24
+msgid "Hora de Entrada"
+msgstr "Heure d'entrée"
+
+#: .\templates\users\admin_v.html:25 .\templates\users\perfil.html:40
+msgid "Valoracion"
+msgstr "Évaluation"
+
+#: .\templates\users\admin_v.html:58
+msgid "No tienes permisos para entrar a este sitio"
+msgstr "Vous n'avez pas la permission d'entrer sur ce site "
+
+#: .\templates\users\normal_user_v.html:12
+msgid "Valore su viaje"
+msgstr "Evaluez votre voyage"
+
+#: .\templates\users\perfil.html:38
+msgid "Fecha salida"
+msgstr "Date de départ"
+
+#: .\templates\users\perfil.html:39
+msgid "Hora salida"
+msgstr "Heure de sortie"
+
+#: .\templates\users\perfil.html:41
+msgid "Bus patente"
+msgstr "Bus de brevets"
+
+#: .\templates\users\perfil.html:42 .\templates\users\perfil.html:55
+#: .\templates\users\perfil.html:57
+msgid "Valorar"
+msgstr "Évaluer"
+
+#: .\templates\users\perfil.html:59
+msgid "Generar QR"
+msgstr "Générer QR"
+
+#: .\templates\users\perfil.html:72
+#, fuzzy
+#| msgid "Valoracion"
+msgid "Valoraciones"
+msgstr "Évaluation"
+
+#: .\templates\users\perfil.html:73
+#, fuzzy
+#| msgid "No hay usuarios"
+msgid "Datos de usuario"
+msgstr "Aucun utilisateur"
+
+#: .\templates\users\perfil.html:75
+msgid "Agregar pasaje"
+msgstr "Ajouter un passage"
+
+#: .\templates\users\signup.html:11 .\templates\users\signup.html:17
+msgid "Registrarse"
+msgstr "S'inscrire"
+
+#: .\templates\users\user_list.html:12
+msgid "Usuario"
+msgstr "Utilisateur"
+
+#: .\templates\users\user_list.html:13
+msgid "Rut"
+msgstr "DNI"
+
+#: .\templates\users\user_list.html:14
+msgid "Correo"
+msgstr "Email"
+
+#: .\templates\users\user_list.html:15
+msgid "Nombre"
+msgstr "Nom"
+
+#: .\templates\users\user_list.html:16
+msgid "Telefono"
+msgstr "Téléphone"
+
+#: .\templates\users\user_list.html:32
+msgid "No hay usuarios"
+msgstr "Aucun utilisateur"
+
+#~ msgid "Cerrar Sesión"
+#~ msgstr "Fermer la session"
+
+#~ msgid "Iniciar Sesión"
+#~ msgstr "Commencer la session"
+
+#~ msgid "Registro"
+#~ msgstr "Inscription"
