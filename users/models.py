@@ -26,6 +26,7 @@ class Pasaje(models.Model):
     Dueño = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     Destino = models.CharField(max_length=150)
     Opciones_Valoraciones = (
+        (0, '0'),
         (1, '1'),
         (2, '2'),
         (3, '3'),
