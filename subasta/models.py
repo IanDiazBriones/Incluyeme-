@@ -1,7 +1,8 @@
 from django.db import models
-
+from users.models import Pasaje
 # Create your models here.
-class Pasaje(models.Model):
+
+class Subasta(models.Model):
     ValorSubastaActualizado = models.IntegerField(default='0')
     Puja = models.IntegerField(default='0')
     HoraI_Subasta = models.TimeField()
@@ -9,3 +10,4 @@ class Pasaje(models.Model):
     Fecha_Subasta = models.DateField()
     Estado_Subasta = models.BooleanField(default=False)
     Estado_Puja = models.BooleanField(default=False)
+    Pasaje = models.ForeignKey(Pasaje, on_delete=models.CASCADE)
