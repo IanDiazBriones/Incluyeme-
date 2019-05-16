@@ -1,4 +1,4 @@
-{% extends 'pagStatic/header.html' %}
+
 {% load i18n %}
 {% block content %}
 {% load crispy_forms_tags %}
@@ -23,8 +23,7 @@
             <th class="text-center">{% trans "Hora salida" %}</th>
             <th class="text-center">{% trans "Valoracion" %}</th>
             <th class="text-center">{% trans "Bus patente" %}</th>
-            <th class="text-center">{% trans "Valorar" %}</th>
-            <th class="text-center">QR</th>
+            
           </tr>
           <tr>
             <td class="text-center"></td>
@@ -33,9 +32,7 @@
             <td class="text-center"></td>
             <td class="text-center"></td>
             <td class="text-center"></td>
-            <td class="text-center"><a class="btn btn-primary btn-block disabled" href="http://127.0.0.1:8000/user/valoracion_n/{{ Pasaje.pk }}/" role="button">{% trans "Valorar" %}</a></td>
-            <td class="text-center"><a class="btn btn-primary btn-block" href="http://127.0.0.1:8000/user/valoracion_n/{{ Pasaje.pk }}/" role="button">{% trans "Valorar" %}</a></td>
-            <td class="text-center"><a class="btn btn-primary btn-block" href="http://127.0.0.1:8000/user/QR/{{ Pasaje.pk }}/{{ user.pk }}/" role="button">{% trans "Generar QR" %}</a></td>
+            
           </tr>
         </table>
       </div>
