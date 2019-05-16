@@ -15,7 +15,6 @@
     </div>
     <div class="row justify-content-center">
       <div class="table-responsive-sm">
-        {% if user.es_admin != True %}
         <table class="table table-dark table-hover">
           <tr>
             <th class="text-center">{% trans "Codigo" %}</th>
@@ -27,36 +26,25 @@
             <th class="text-center">{% trans "Valorar" %}</th>
             <th class="text-center">QR</th>
           </tr>
-          {% for Pasaje in Pasajes %}
-          {% if Pasaje.Dueño == user %}
           <tr>
-            <td class="text-center">{{ Pasaje.Codigo }}</td>
-            <td class="text-center">{{ Pasaje.Asiento }}</td>
-            <td class="text-center">{{ Pasaje.Fecha_Salida }}</td>
-            <td class="text-center">{{ Pasaje.Hora_Salida }}</td>
-            <td class="text-center">{{ Pasaje.Valoracion }}</td>
-            <td class="text-center">{{ Pasaje.PatenteBus }}</td>
-            {% if Pasaje.Valoracion != 0 %}
+            <td class="text-center"></td>
+            <td class="text-center"></td>
+            <td class="text-center"></td>
+            <td class="text-center"></td>
+            <td class="text-center"></td>
+            <td class="text-center"></td>
             <td class="text-center"><a class="btn btn-primary btn-block disabled" href="http://127.0.0.1:8000/user/valoracion_n/{{ Pasaje.pk }}/" role="button">{% trans "Valorar" %}</a></td>
-            {% else %}
             <td class="text-center"><a class="btn btn-primary btn-block" href="http://127.0.0.1:8000/user/valoracion_n/{{ Pasaje.pk }}/" role="button">{% trans "Valorar" %}</a></td>
-            {% endif %}
             <td class="text-center"><a class="btn btn-primary btn-block" href="http://127.0.0.1:8000/user/QR/{{ Pasaje.pk }}/{{ user.pk }}/" role="button">{% trans "Generar QR" %}</a></td>
           </tr>
-          {% endif %}
-          {% endfor %}
         </table>
-        {% endif %}
       </div>
     </div>
     <div class="container mt-2">
       <div class="row justify-content-center">
         <div class="col-md-4 col-lg-2">
-          {% if user.es_admin == True %}
           <a class="btn btn-primary btn-block" href="{% url 'valoracion_a' %}" role="button">{% trans "Valoraciones" %}</a>
           <a class="btn btn-primary btn-block" href="{% url 'LISTAUSUARIOS' %}" role="button">{% trans "Datos de usuario" %}</a>
-          {% else %}
-          {% endif %}
         </div>
       </div>
     </body>
