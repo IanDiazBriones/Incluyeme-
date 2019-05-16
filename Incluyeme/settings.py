@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'Buses.apps.BusesConfig',
     'qr_code', # Libreria Codigo QR
     'background_task',
+    'Foro',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
