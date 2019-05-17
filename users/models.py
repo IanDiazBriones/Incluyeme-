@@ -45,10 +45,5 @@ class Pasaje(models.Model):
         self.NotificacionHorasEnv = True
         self.save()
     
-class Comentario(models.Model):
-    Autor = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    ComentarioU = models.TextField()
 
-    def __str__(self):
-        return self.text
 

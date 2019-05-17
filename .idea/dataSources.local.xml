@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="db" uuid="1ea738d5-8f7a-43af-bee6-49b0e137ee46">
+    <data-source name="db" uuid="ff6c36a9-69c3-4683-9e98-a819285ebb75">
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" exact-version="0" />
-      <secret-storage>forget</secret-storage>
+      <auth-required>false</auth-required>
     </data-source>
   </component>
 </project>

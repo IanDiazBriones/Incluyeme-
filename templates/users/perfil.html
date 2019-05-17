@@ -71,10 +71,19 @@
         <div class="col-md-4 col-lg-2">
           {% if user.es_admin == True %}
           <a class="btn btn-primary btn-block" href="{% url 'valoracion_a' %}" role="button">{% trans "Valoraciones" %}</a>
-          <a class="btn btn-primary btn-block" href="{% url 'LISTAUSUARIOS' %}" role="button">{% trans "Datos de usuario" %}</a>
+          <a class="btn btn-primary btn-block" href="{% url 'LISTADEUSUARIOS' %}" role="button">{% trans "Datos de usuario" %}</a>
           {% else %}
           {% endif %}
         </div>
+      <div class="container mt-2">
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+     <td class="text-center"><a class="btn btn-primary btn-block" href="{% url 'index' %}" role="button">{% trans "Volver atrás" %}</a></td>
+   </div>
+   <div class="col-4"></div>
+ </div>
+
       </div>
     </body>
 
