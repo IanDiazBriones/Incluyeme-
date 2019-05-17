@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <hr>
+
+
+
+{% for Comentario in Comentario %}
+    <div class="Comentario">
+        <strong>{{ Comentario.Autor }}</strong>
+        <p>{{ Comentario.Autor |linebreaks }}</p>
+    </div>
+{% empty %}
+    <p>No hay comentarios</p>
+{% endfor %}
+
+
+
+</head>
+<body>
+
+</body>
+</html>
