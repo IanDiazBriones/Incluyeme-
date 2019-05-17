@@ -1,24 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <hr>
+{% block content %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-
-
-{% for Comentario in Comentario %}
-    <div class="Comentario">
-        <strong>{{ Comentario.Autor }}</strong>
-        <p>{{ Comentario.Autor |linebreaks }}</p>
-    </div>
-{% empty %}
-    <p>No hay comentarios</p>
-{% endfor %}
-
-
-
-</head>
+<html>
 <body>
+ <div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <h1 class="mt-2">{% trans "Foro - ¡Opina sobre tu viaje!" %}</h1>
+      <hr class="mt-0 mb-4">
+    </div>
+  </div>
+ 
 
+     {% if usuarios %}
+     {% for Comentario in Comentarios %}
+        <tr>
+          <td class="text-center">{{Comentario.Autor }}</td>
+          <td class="text-center">{{Comentario.ComentarioU }}</td>
+        </tr>
+        {% endfor %}
+         {% else%}
+         <h4>{% trans "Aún no se han añadido comentarios" %}</h4>
+        {% endif  %}
+      </table>
+    </div>
+  </div>
+</div>
+<div class="container mt-2">
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+     <td class="text-center"><a class="btn btn-primary btn-block" href="{% url 'index' %}" role="button">{% trans "Volver atrás" %}</a></td>
+   </div>
+   <div class="col-4"></div>
+ </div>
+
+</div>
 </body>
 </html>
+{% endblock %}
