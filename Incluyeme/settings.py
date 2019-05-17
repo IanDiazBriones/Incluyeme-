@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'Foro',
 ]
 
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
