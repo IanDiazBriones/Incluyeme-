@@ -38,7 +38,7 @@
               <td class="text-center">{{ Subasta.Pasaje_A_Sub.Destino }}</td>
               <td class="text-center">{{ Subasta.Pasaje_A_Sub.Hora_Salida }}</td>
               <td class="text-center">{{ Subasta.Pasaje_A_Sub.Valor  }}</td>
-              <td class="text-center"><a class="btn btn-primary btn-block" href="http://127.0.0.1:8000/subasta/Detalle/{{ Subasta.pk }}/" role="button">{% trans "Ver" %}</a></td>       
+              <td class="text-center"><a class="btn btn-primary btn-block" href="/subasta/Detalle/{{ Subasta.pk }}/" role="button">{% trans "Ver" %}</a></td>       
             </tr>
             {% endfor %}
           </tbody>
