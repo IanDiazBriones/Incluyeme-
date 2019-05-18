@@ -1,5 +1,5 @@
 from django.db import models
-from users.models import Pasaje
+from users.models import Pasaje, CustomUser
 # Create your models here.
 
 class Subasta(models.Model):
@@ -11,3 +11,4 @@ class Subasta(models.Model):
     Estado_Subasta = models.BooleanField(default=False)
     Estado_Puja = models.BooleanField(default=False)
     Pasaje_A_Sub = models.ForeignKey(Pasaje, on_delete=models.CASCADE)
+    Ultima_Puja = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
