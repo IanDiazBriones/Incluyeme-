@@ -40,6 +40,12 @@ def Lista_Usuarios(request):
     context={'usuarios':usuario}
     return render(request, 'users/user_list.html',context)
 
+def mostrarProtocolo(request):
+    return render(request, 'users/protocolo.html')
+
+def mostrarImagenProtocolo(request):
+    return render(request, 'users/imagen_protocolo.html')
+
 def CreateQRCode(request, IdentificadorPas, IdentificadorUsu):
     Pasajes= Pasaje.objects.get(pk = IdentificadorPas)
     Usuario= CustomUser.objects.get(pk = IdentificadorUsu)
