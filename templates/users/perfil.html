@@ -55,12 +55,12 @@
             <td class="text-center">{{ Pasaje.Valoracion }}</td>
             <td class="text-center">{{ Pasaje.PatenteBus }}</td>
             {% if Pasaje.Valoracion != 0 %}
-            <td class="text-center"><a class="btn btn-primary btn-block disabled" href="http://127.0.0.1:8000/user/valoracion_n/{{ Pasaje.pk }}/" role="button">{% trans "Valorar" %}</a></td>
+            <td class="text-center"><a class="btn btn-primary btn-block disabled" href="/user/valoracion_n/{{ Pasaje.pk }}/" role="button">{% trans "Valorar" %}</a></td>
             {% else %}
-            <td class="text-center"><a class="btn btn-primary btn-block" href="http://127.0.0.1:8000/user/valoracion_n/{{ Pasaje.pk }}/" role="button">{% trans "Valorar" %}</a></td>
+            <td class="text-center"><a class="btn btn-primary btn-block" href="/user/valoracion_n/{{ Pasaje.pk }}/" role="button">{% trans "Valorar" %}</a></td>
             {% endif %}
-            <td class="text-center"><a class="btn btn-primary btn-block" href="http://127.0.0.1:8000/user/QR/{{ Pasaje.pk }}/{{ user.pk }}/" role="button">{% trans "Generar QR" %}</a></td>
-            <td class="text-center"><a class="btn btn-danger btn-block" href="http://127.0.0.1:8000/subasta/Estado/{{ Pasaje.pk }}/" role="button">{% trans "Subasta" %}</a></td>
+            <td class="text-center"><a class="btn btn-primary btn-block" href="/user/QR/{{ Pasaje.pk }}/{{ user.pk }}/" role="button">{% trans "Generar QR" %}</a></td>
+            <td class="text-center"><a class="btn btn-danger btn-block" href="/subasta/Estado/{{ Pasaje.pk }}/" role="button">{% trans "Subasta" %}</a></td>
           </tr>
           {% endif %}
           {% endfor %}
