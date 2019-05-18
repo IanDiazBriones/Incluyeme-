@@ -1,10 +1,9 @@
-from __future__ import unicode_literals
 from django.contrib import admin
 from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
 from .forms import CustomUserCreationForm, CustomUserChangeForm
 from .models import CustomUser, Pasaje, Bus
-from events.models import Event
+
 
 class CustomUserAdmin(UserAdmin):
     add_form = CustomUserCreationForm
@@ -19,10 +18,9 @@ class CustomUserAdmin(UserAdmin):
     def unmark_admin(self, request, queryset):
         queryset.update(es_admin=False)
 
-class EventAdmin(admin.ModelAdmin):
-    list_display = ['day', 'start_time', 'end_time', 'notes']
+
 
 
 admin.site.register(CustomUser, CustomUserAdmin) # Funcion para registrar
 admin.site.register(Pasaje)
-admin.site.register(Event)
+
