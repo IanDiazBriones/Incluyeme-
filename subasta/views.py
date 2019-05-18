@@ -47,4 +47,13 @@ def SubastaPuja(request, pk):
 	subasta.Pujar()
 	return redirect('http://127.0.0.1:8000/subasta/Detalle/'+str(pk)+'/')
 
+def SubastaPagar(request, pk):
+
+	subasta = Subasta.objects.get(pk=pk) 
+
+	context = {
+	'Subasta': subasta,
+	}
+	return render(request, 'subasta/subasta_Pagar.html', context)
+
 
