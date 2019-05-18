@@ -9,7 +9,8 @@ urlpatterns = [
 	path('valoracion_n/<int:pk>/', views.ValoracionUpdate.as_view(), name='valoracion_edit'),
 	path('listar',views.Lista_Usuarios,name='LISTADEUSUARIOS'),
 	path('QR/<int:IdentificadorPas>/<int:IdentificadorUsu>/', views.CreateQRCode, name='QR'),
-
+	path('Protocolo', views.mostrarProtocolo, name='proto'),
+	path('MostrarProtocolo', views.mostrarImagenProtocolo, name='mostrar_image'),
 ]
 
 
