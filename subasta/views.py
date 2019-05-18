@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.views.generic import UpdateView
 from .forms import *
 from users.models import Pasaje
+from django.shortcuts import redirect
 import datetime
 # Create your views here.
 def ListarSubasta(request):
@@ -40,5 +41,10 @@ def SubastaAdd(request, pk):
 		}
 
 	return render(request, 'subasta/Est_Subasta.html', context)
+
+def SubastaPuja(request, pk):
+	subasta = Subasta.objects.get(pk=pk)
+	subasta.Pujar()
+	return redirect('http://127.0.0.1:8000/subasta/Detalle/'+str(pk)+'/')
 
 
