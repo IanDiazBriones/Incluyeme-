@@ -35,6 +35,7 @@ class Pasaje(models.Model):
     Valoracion = models.IntegerField(default='0', choices=Opciones_Valoraciones)
     NotificacionDiaEnv = models.BooleanField(default=False)
     NotificacionHorasEnv = models.BooleanField(default=False)
+    Valor = models.IntegerField(default='0')
 
     #Cambia el estado de la notificacion
     def EnvioNotificacionDia(self):

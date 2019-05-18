@@ -2,7 +2,6 @@ from .forms import CustomUserCreationForm
 from django.urls import reverse_lazy
 from django.views import generic
 from django.shortcuts import render
-from .models import *
 from django.views.generic import UpdateView
 from .forms import *
 from background_task import background
