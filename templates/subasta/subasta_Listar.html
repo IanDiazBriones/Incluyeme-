@@ -1,0 +1,43 @@
+
+{% load i18n %}
+{% block content %}
+{% load crispy_forms_tags %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-8">
+        <h1 class="mt-2">{% trans "Lista Subastas" %}</h1>
+        <hr class="mt-0 mb-4">
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="table-responsive-sm">
+        <table class="table table-dark table-hover">
+          <tr>
+            <th class="text-center">{% trans "Dueño" %}</th>
+            <th class="text-center">{% trans "Destino" %}</th>
+            <th class="text-center">{% trans "Hora" %}</th>
+            <th class="text-center">{% trans "Valor" %}</th>
+            <th class="text-center">{% trans "Ver" %}</th> 
+          </tr>
+          {% for Subasta in Subastas %}
+          <tr>
+            <td class="text-center">{{ Subasta.Pasaje_A_Sub.Dueño.nombre }}</td>
+            <td class="text-center">{{ Subasta.Pasaje_A_Sub.Destino }}</td>
+            <td class="text-center">{{ Subasta.Pasaje_A_Sub.Hora_Salida }}</td>
+            <td class="text-center">{{ Subasta.Pasaje_A_Sub.Valor  }}</td>
+            <td class="text-center"><a class="btn btn-primary btn-block" href="#" role="button">{% trans "Ver" %}</a></td>       
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+    <div class="container mt-2">
+      <div class="row justify-content-center">
+      </div>
+    </body>
+
+    {% endblock %}
