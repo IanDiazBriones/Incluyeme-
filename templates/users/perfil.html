@@ -43,6 +43,7 @@
             <th class="text-center">{% trans "Bus patente" %}</th>
             <th class="text-center">{% trans "Valorar" %}</th>
             <th class="text-center">QR</th>
+            <th class="text-center">Subastar</th>
           </tr>
           {% for Pasaje in Pasajes %}
           {% if Pasaje.Dueño == user %}
@@ -59,6 +60,7 @@
             <td class="text-center"><a class="btn btn-primary btn-block" href="http://127.0.0.1:8000/user/valoracion_n/{{ Pasaje.pk }}/" role="button">{% trans "Valorar" %}</a></td>
             {% endif %}
             <td class="text-center"><a class="btn btn-primary btn-block" href="http://127.0.0.1:8000/user/QR/{{ Pasaje.pk }}/{{ user.pk }}/" role="button">{% trans "Generar QR" %}</a></td>
+            <td class="text-center"><a class="btn btn-danger btn-block" href="http://127.0.0.1:8000/subasta/Estado/{{ Pasaje.pk }}/" role="button">{% trans "Subasta" %}</a></td>
           </tr>
           {% endif %}
           {% endfor %}
