@@ -25,7 +25,7 @@ urlpatterns = [
     path('', include('pagStatic.urls')),
     path('user/', include('users.urls')),
     path('user/', include('django.contrib.auth.urls')),
-    path('subasta/', include('subasta.urls')),
+    
 ]
 
 urlpatterns += staticfiles_urlpatterns()
