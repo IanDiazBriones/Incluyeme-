@@ -9,8 +9,16 @@
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-8">
-				<h1 class="mt-2">{% trans "Subasta" %}</h1>
+				<h1 class="mt-2">{% trans "Estado Subasta" %}</h1>
 				<hr class="mt-0 mb-4">
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-8">
+				<div class="form-group">
+					<label for="exampleInputPassword1">Codigo</label>
+					<input class="form-control" id="exampleInputPassword1" placeholder="Valor Subasta Actual" value="{{ Subasta.Pasaje_A_Sub.Codigo }}" disabled>
+				</div>
 			</div>
 		</div>
 		<div class="row justify-content-center">
@@ -24,23 +32,39 @@
 		<div class="row justify-content-center">
 			<div class="col-8">
 				<div class="form-group">
-					<label for="exampleInputPassword1">Hora Salida</label>
-					<input class="form-control" id="exampleInputPassword1" placeholder="Valor Subasta Actual" value="{{ Subasta.Pasaje_A_Sub.Hora_Salida }}" disabled>
+					<label for="exampleInputPassword1">Valor</label>
+					<input class="form-control" id="exampleInputPassword1" placeholder="Valor Subasta Actual" value="{{ Subasta.Pasaje_A_Sub.Valor }}" disabled>
 				</div>
 			</div>
 		</div>
 		<div class="row justify-content-center">
 			<div class="col-8">
 				<div class="form-group">
-					<label for="exampleInputPassword1">Tiempo Restante</label>
-					<input class="form-control" id="exampleInputPassword1" placeholder="Valor Subasta Actual" value="{{ Subasta.Pasaje_A_Sub.Hora_Salida }}" disabled>
+					<label for="exampleInputPassword1">Hora Inicio</label>
+					<input class="form-control" id="exampleInputPassword1" placeholder="Valor Subasta Actual" value="{{ Subasta.HoraI_Subasta }}" disabled>
 				</div>
 			</div>
 		</div>
 		<div class="row justify-content-center">
 			<div class="col-8">
 				<div class="form-group">
-					<label for="exampleInputPassword1">Nombre Ultima Oferta</label>
+					<label for="exampleInputPassword1">Hora Termino</label>
+					<input class="form-control" id="exampleInputPassword1" placeholder="Valor Subasta Actual" value="{{ Subasta.HoraF_Subasta }}" disabled>
+				</div>
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-8">
+				<div class="form-group">
+					<label for="exampleInputPassword1">Valor Actual</label>
+					<input class="form-control" id="exampleInputPassword1" placeholder="Valor Subasta Actual" value="{{ Subasta.ValorSubastaActualizado }}" disabled>
+				</div>
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-8">
+				<div class="form-group">
+					<label for="exampleInputPassword1">Nombre Oferta Actual</label>
 					<input class="form-control" id="exampleInputPassword1" placeholder="Valor Subasta Actual" value="{{ Subasta.Ultima_Puja.nombre }}" disabled>
 				</div>
 			</div>
@@ -48,7 +72,7 @@
 		<div class="row justify-content-center">
 			<div class="col-md-4 col-lg-2">        
 				<a class="btn btn-primary btn-block" href="#" role="button" disabled>{{ Subasta.ValorSubastaActualizado }}</a>
-				<a class="btn btn-success btn-block" href="http://127.0.0.1:8000/subasta/SubastaPuja/{{ Subasta.pk }}/" role="button">{% trans "Pujar $500" %}</a>
+				<a class="btn btn-success btn-block" href="{% url 'LISTADEUSUARIOS' %}" role="button">{% trans "Pujar $500" %}</a>
 			</div>
 		</div>
 	</body>
