@@ -12,3 +12,7 @@ class Subasta(models.Model):
     Estado_Puja = models.BooleanField(default=False)
     Pasaje_A_Sub = models.ForeignKey(Pasaje, on_delete=models.CASCADE)
     Ultima_Puja = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+
+    def Pujar(self):
+    	self.ValorSubastaActualizado = self.ValorSubastaActualizado + self.Puja
+    	self.save()
