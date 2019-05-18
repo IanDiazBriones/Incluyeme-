@@ -9,7 +9,7 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-8">
-        <h1 class="mt-2">{% trans "Mi perfil" %}</h1>
+        <h1 class="mt-2">{% trans "Lista Subastas" %}</h1>
         <hr class="mt-0 mb-4">
       </div>
     </div>
@@ -17,32 +17,26 @@
       <div class="table-responsive-sm">
         <table class="table table-dark table-hover">
           <tr>
-            <th class="text-center">{% trans "Codigo" %}</th>
-            <th class="text-center">{% trans "Asiento" %}</th>
-            <th class="text-center">{% trans "Fecha salida" %}</th>
-            <th class="text-center">{% trans "Hora salida" %}</th>
-            <th class="text-center">{% trans "Valoracion" %}</th>
-            <th class="text-center">{% trans "Bus patente" %}</th>
-            
+            <th class="text-center">{% trans "Dueño" %}</th>
+            <th class="text-center">{% trans "Destino" %}</th>
+            <th class="text-center">{% trans "Hora" %}</th>
+            <th class="text-center">{% trans "Valor" %}</th>
+            <th class="text-center">{% trans "Ver" %}</th> 
           </tr>
+          {% for Subasta in Subastas %}
           <tr>
-            <td class="text-center"></td>
-            <td class="text-center"></td>
-            <td class="text-center"></td>
-            <td class="text-center"></td>
-            <td class="text-center"></td>
-            <td class="text-center"></td>
-            
+            <td class="text-center">{{ Subasta.Pasaje_A_Sub.Dueño.nombre }}</td>
+            <td class="text-center">{{ Subasta.Pasaje_A_Sub.Destino }}</td>
+            <td class="text-center">{{ Subasta.Pasaje_A_Sub.Hora_Salida }}</td>
+            <td class="text-center">{{ Subasta.Pasaje_A_Sub.Valor  }}</td>
+            <td class="text-center"><a class="btn btn-primary btn-block" href="#" role="button">{% trans "Ver" %}</a></td>       
           </tr>
+          {% endfor %}
         </table>
       </div>
     </div>
     <div class="container mt-2">
       <div class="row justify-content-center">
-        <div class="col-md-4 col-lg-2">
-          <a class="btn btn-primary btn-block" href="{% url 'valoracion_a' %}" role="button">{% trans "Valoraciones" %}</a>
-          <a class="btn btn-primary btn-block" href="{% url 'LISTAUSUARIOS' %}" role="button">{% trans "Datos de usuario" %}</a>
-        </div>
       </div>
     </body>
 
