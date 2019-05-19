@@ -1,0 +1,27 @@
+{% block content %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
+
+<h1> Escoja patente del bus </h1>
+
+
+
+{% endblock %}
+
+
+    <select name="Patente:">
+    {% if buses %}
+        {% for bus in buses %}
+            <option>{{ bus.Patente }}</option>
+        {% endfor %}
+    {% else %}
+        <h4> {% trans "No hay patentes registradas" %} </h4>
+    {% endif %}
+
+    </select>
+    <input type="submit" value="Enviar">

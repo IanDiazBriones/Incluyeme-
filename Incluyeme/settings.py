@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'qr_code', # Libreria Codigo QR
     'background_task',
     'Foro',
+    'events',
 ]
 
 
