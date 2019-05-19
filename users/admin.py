@@ -4,6 +4,7 @@ from django.contrib.auth.admin import UserAdmin
 from .forms import CustomUserCreationForm, CustomUserChangeForm
 from .models import CustomUser, Pasaje, Bus
 
+
 class CustomUserAdmin(UserAdmin):
     add_form = CustomUserCreationForm
     form = CustomUserChangeForm 
@@ -18,5 +19,8 @@ class CustomUserAdmin(UserAdmin):
         queryset.update(es_admin=False)
 
 
+
+
 admin.site.register(CustomUser, CustomUserAdmin) # Funcion para registrar
 admin.site.register(Pasaje)
+
