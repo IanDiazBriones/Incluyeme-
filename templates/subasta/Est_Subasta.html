@@ -13,6 +13,15 @@
 				<hr class="mt-0 mb-4">
 			</div>
 		</div>
+		
+		<div class="row justify-content-center">
+			<div class="col-8">
+				<div class="form-group">
+					<label for="exampleInputPassword1">Tiempo Restante</label>
+					<input class="form-control" id="exampleInputPassword1" placeholder="Valor Subasta Actual" value="{{ TiempoRestante }}" disabled>
+				</div>
+			</div>
+		</div>
 		<div class="row justify-content-center">
 			<div class="col-8">
 				<div class="form-group">
@@ -49,7 +58,7 @@
 			<div class="col-8">
 				<div class="form-group">
 					<label for="exampleInputPassword1">Hora Termino</label>
-					<input class="form-control" id="exampleInputPassword1" placeholder="Valor Subasta Actual" value="{{ Subasta.HoraF_Subasta }}" disabled>
+					<input class="form-control" id="exampleInputPassword1" placeholder="Valor Subasta Actual" value="{{ TiempoMenos5Min }}" disabled>
 				</div>
 			</div>
 		</div>
