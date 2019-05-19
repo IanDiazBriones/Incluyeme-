@@ -17,10 +17,11 @@ class SignUp(generic.CreateView):
 
 # Create your views here.
 def Perfil(request):
-	Pasajes= Pasaje.objects.all()
-	context= {'Pasajes': Pasajes}
-	return render(request, 'users/perfil.html', context)
-
+  PasajesAntesHoy= Pasaje.objects.filter(Fecha_Salida__lte=date.today())
+  PasajesDespuesHoy= Pasaje.objects.filter(Fecha_Salida__gte=date.today())
+  context= {'PasajesAntesHoy': PasajesAntesHoy,'PasajesDespuesHoy': PasajesDespuesHoy}
+  return render(request, 'users/perfil.html', context)
+  
 def Valoraciones_a(request):
 	Pasajes= Pasaje.objects.all()
 	context= {'Pasajes': Pasajes}

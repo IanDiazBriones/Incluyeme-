@@ -54,7 +54,7 @@
             <th class="text-center">{% trans "Bus patente" %}</th>
             <th class="text-center">Subastar</th>
           </tr>
-          {% for Pasaje in Pasajes %}
+          {% for Pasaje in PasajesDespuesHoy %}
           {% if Pasaje.Dueño == user %}
           <tr>
             <td class="text-center"><a class="btn btn-primary btn-block" href="/user/QR/{{ Pasaje.pk }}/{{ user.pk }}/" role="button">{% trans "Generar QR" %}</a></td>
@@ -86,7 +86,7 @@
             <th class="text-center">{% trans "Bus patente" %}</th>
             <th class="text-center">{% trans "Valorar" %}</th>
           </tr>
-          {% for Pasaje in Pasajes %}
+          {% for Pasaje in PasajesAntesHoy %}
           {% if Pasaje.Dueño == user %}
           <tr>
             <td class="text-center">{{ Pasaje.Codigo }}</td>
