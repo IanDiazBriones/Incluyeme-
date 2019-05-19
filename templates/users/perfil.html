@@ -14,6 +14,16 @@
       </div>
     </div>
     <div class="row justify-content-center">
+      <div class="col-8">
+        <div class="form-group">
+          <select class="form-control" id="SelecViajes">
+            <option value="0">Proximos Viajes</option>
+            <option value="1">Historial de Viajes</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
     	<div class="col-4">
         {% if user.foto != "" %}
         <img src="{{ user.foto.url }}" class="mx-auto d-block img-fluid rounded" alt="Foto">
@@ -33,7 +43,40 @@
     <div class="row justify-content-center">
       <div class="table-responsive-sm">
         {% if user.es_admin != True %}
-        <table class="table table-dark table-hover">
+        <table class="table table-dark table-hover" id="Table-ProximosViajes">
+          <tr>
+            <th class="text-center">QR</th>
+            <th class="text-center">{% trans "Codigo" %}</th>
+            <th class="text-center">{% trans "Asiento" %}</th>
+            <th class="text-center">{% trans "Fecha salida" %}</th>
+            <th class="text-center">{% trans "Hora salida" %}</th>
+            <th class="text-center">{% trans "Valoracion" %}</th>
+            <th class="text-center">{% trans "Bus patente" %}</th>
+            <th class="text-center">Subastar</th>
+          </tr>
+          {% for Pasaje in Pasajes %}
+          {% if Pasaje.Dueño == user %}
+          <tr>
+            <td class="text-center"><a class="btn btn-primary btn-block" href="/user/QR/{{ Pasaje.pk }}/{{ user.pk }}/" role="button">{% trans "Generar QR" %}</a></td>
+            <td class="text-center">{{ Pasaje.Codigo }}</td>
+            <td class="text-center">{{ Pasaje.Asiento }}</td>
+            <td class="text-center">{{ Pasaje.Fecha_Salida }}</td>
+            <td class="text-center">{{ Pasaje.Hora_Salida }}</td>
+            <td class="text-center">{{ Pasaje.Valoracion }}</td>
+            <td class="text-center">{{ Pasaje.PatenteBus }}</td>
+            <td class="text-center"><a class="btn btn-danger btn-block" href="/subasta/Estado/{{ Pasaje.pk }}/" role="button">{% trans "Subasta" %}</a></td>
+          </tr>
+          {% endif %}
+          {% endfor %}
+        </table>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="table-responsive-sm">
+        {% if user.es_admin != True %}
+        <table class="table table-dark table-hover" id="Table-Historial">
           <tr>
             <th class="text-center">{% trans "Codigo" %}</th>
             <th class="text-center">{% trans "Asiento" %}</th>
@@ -42,8 +85,6 @@
             <th class="text-center">{% trans "Valoracion" %}</th>
             <th class="text-center">{% trans "Bus patente" %}</th>
             <th class="text-center">{% trans "Valorar" %}</th>
-            <th class="text-center">QR</th>
-            <th class="text-center">Subastar</th>
           </tr>
           {% for Pasaje in Pasajes %}
           {% if Pasaje.Dueño == user %}
@@ -59,8 +100,6 @@
             {% else %}
             <td class="text-center"><a class="btn btn-primary btn-block" href="/user/valoracion_n/{{ Pasaje.pk }}/" role="button">{% trans "Valorar" %}</a></td>
             {% endif %}
-            <td class="text-center"><a class="btn btn-primary btn-block" href="/user/QR/{{ Pasaje.pk }}/{{ user.pk }}/" role="button">{% trans "Generar QR" %}</a></td>
-            <td class="text-center"><a class="btn btn-danger btn-block" href="/subasta/Estado/{{ Pasaje.pk }}/" role="button">{% trans "Subasta" %}</a></td>
           </tr>
           {% endif %}
           {% endfor %}
@@ -68,6 +107,7 @@
         {% endif %}
       </div>
     </div>
+
     <div class="container mt-2">
       <div class="row justify-content-center">
         <div class="col-md-4 col-lg-2">
@@ -77,16 +117,33 @@
           {% else %}
           {% endif %}
         </div>
-      <div class="container mt-2">
-  <div class="row">
-    <div class="col-4"></div>
-    <div class="col-4">
-     <td class="text-center"><a class="btn btn-primary btn-block" href="{% url 'index' %}" role="button">{% trans "Volver atrás" %}</a></td>
-   </div>
-   <div class="col-4"></div>
- </div>
+        <div class="container mt-2">
+          <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+             <td class="text-center"><a class="btn btn-primary btn-block" href="{% url 'index' %}" role="button">{% trans "Volver atrás" %}</a></td>
+           </div>
+           <div class="col-4"></div>
+         </div>
 
-      </div>
+       </div>
+
+
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+        <script>
+          $(document).ready(function(){
+            document.getElementById('Table-Historial').style.display = 'none';
+            $("#SelecViajes").change(function() {
+              if ($(this).val() == 0) {
+                document.getElementById('Table-ProximosViajes').style.display = '';
+                document.getElementById('Table-Historial').style.display = 'none';
+              } else {
+                document.getElementById('Table-ProximosViajes').style.display = 'none';
+                document.getElementById('Table-Historial').style.display = '';
+              }
+            });
+          });
+        </script>  
     </body>
 
     {% endblock %}
