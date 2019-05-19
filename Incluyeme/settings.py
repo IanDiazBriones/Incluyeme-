@@ -25,7 +25,7 @@ SECRET_KEY = 'i0*2!(7q$!949&q=vw&uv@8$iq&5)-69%94eg$+@hv$li^q8%8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["idazbriones.pythonanywhere.com"]
 
 
 # Application definition
