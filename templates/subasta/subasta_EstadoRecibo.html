@@ -1,0 +1,64 @@
+{% block content %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<html>
+<body>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-8">
+				<h1 class="mt-2" align="center">{% trans "Resultado" %}</h1>
+				<hr class="mt-0 mb-4">
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-8">
+				<div class="form-group">
+					<label for="exampleInputPassword1">Nombre Ganador</label>
+					<input class="form-control" id="exampleInputPassword1" placeholder="Valor Subasta Actual" value="{{ Subasta.Ultima_Puja.nombre }}" disabled>
+				</div>
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-8">
+				<div class="form-group">
+					<label for="exampleInputPassword1">Fecha</label>
+					<input class="form-control" id="exampleInputPassword1" placeholder="Valor Subasta Actual" value="{{ Subasta.Fecha_Subasta }}" disabled>
+				</div>
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-8">
+				<div class="form-group">
+					<label for="exampleInputPassword1">Valor</label>
+					<input class="form-control" id="exampleInputPassword1" placeholder="Valor Subasta Actual" value="{{ Subasta.Pasaje_A_Sub.Valor }}" disabled>
+				</div>
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-8">
+				<div class="form-group">
+					<label for="exampleInputPassword1">Hora</label>
+					<input class="form-control" id="exampleInputPassword1" placeholder="Valor Subasta Actual" value="{{ Subasta.Pasaje_A_Sub.Hora_Salida }}" disabled>
+				</div>
+			</div>
+		</div>
+
+		<div class="row justify-content-center">
+			<div class="col-8">
+				<div class="form-group">
+					<label for="exampleInputPassword1">Metodo Pago</label>
+					<input class="form-control" id="exampleInputPassword1" placeholder="Valor Subasta Actual" value="Debito" disabled>
+				</div>
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-md-4 col-lg-2">        
+				<a class="btn btn-success btn-block" href="#" role="button">Volver Al perfil</a>
+			</div>
+		</div>
+	</body>
+	</html>
+	{% endblock %}
