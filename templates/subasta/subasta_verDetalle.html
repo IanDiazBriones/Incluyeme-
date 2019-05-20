@@ -48,7 +48,7 @@
 		<div class="row justify-content-center">
 			<div class="col-md-4 col-lg-2">        
 				<a class="btn btn-primary btn-block" href="#" role="button" disabled>{{ Subasta.ValorSubastaActualizado }}</a>
-				<a class="btn btn-success btn-block" href="/subasta/SubastaPuja/{{ Subasta.pk }}/" role="button">{% trans "Pujar $500" %}</a>
+				<a class="btn btn-success btn-block" href="/subasta/SubastaPuja/{{ Subasta.pk }}/{{ user.pk }}/" role="button">{% trans "Pujar $500" %}</a>
 			</div>
 		</div>
 	</body>

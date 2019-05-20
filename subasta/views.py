@@ -3,7 +3,7 @@ from django.views import generic
 from django.shortcuts import render
 from django.views.generic import UpdateView
 from .forms import *
-from users.models import Pasaje
+from users.models import *
 from django.shortcuts import redirect
 from datetime import date
 from datetime import datetime, timedelta
@@ -68,8 +68,10 @@ def SubastaAdd(request, pk):
 
 	return render(request, 'subasta/Est_Subasta.html', context)
 
-def SubastaPuja(request, pk):
+def SubastaPuja(request, pk, pkUsu):
 	subasta = Subasta.objects.get(pk=pk)
+	User = CustomUser.objects.get(pk=pkUsu)
+	subasta.Ultima_Puja = User
 	subasta.Pujar()
 	return redirect('http://127.0.0.1:8000/subasta/Detalle/'+str(pk)+'/')
 
