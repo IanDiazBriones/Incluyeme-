@@ -50,24 +50,24 @@ def mostrarImagenProtocolo(request):
 def CreateQRCode(request, IdentificadorPas, IdentificadorUsu):
     Pasajes= Pasaje.objects.get(pk = IdentificadorPas)
     Usuario= CustomUser.objects.get(pk = IdentificadorUsu)
-    Nombre = str(Usuario.nombre)
     Rut = str(Usuario.rut)
+    Nombre = str(Usuario.nombre)
     Email = str(Usuario.email)
     Telefono = str(Usuario.telefono)
     Destino = str(Pasajes.Destino)
-    Codigo = str(Pasajes.Codigo)
     Asiento = str(Pasajes.Asiento)
     Fecha = str(Pasajes.Fecha_Salida)
     Hora = str(Pasajes.Hora_Salida)
-    StringQR = str(Codigo+"/"
-                   +Asiento+"/"
-                   +Fecha+"/"
-                   +Hora+"/"
-                   +Destino+"/"              
-                   +Nombre+"/"
-                   +Rut+"/"
-                   +Email+"/"
-                   +Telefono+"/")
+    Patente = str(Pasajes.PatenteBus)
+    StringQR = str("RUN="+Rut+"/"
+                   +"NOMBRE="+Nombre+"/"    
+                   +"CELULAR="+Telefono+"/"
+                   +"EMAIL="+Email+"/"
+                   +"HORA SALIDA="+Hora+"/"
+                   +"FECHA SALIDA="+Fecha+"/"
+                   +"ASIENTO="+Asiento+"/"
+                   +"DESTINO="+Destino+"/"              
+                   +"PATENTE="+Patente)
     context= {'QRString': StringQR}
     return render(request, 'users/QR.html', context)
 
