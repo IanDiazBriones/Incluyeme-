@@ -90,3 +90,11 @@ def SubastaPagar(request, pk):
 	return render(request, 'subasta/subasta_Pagar.html', context)
 
 
+def SubastaResultado(request, pk):
+	subasta = Subasta.objects.get(pk=pk) 
+	context = {
+	'Subasta': subasta,
+	}
+	return render(request, 'subasta/subasta_Resultado.html', context)
+
+
