@@ -141,7 +141,7 @@ def MSGnotificacionPago():
     #y que no se enviara una notificacion anteriormente 
     Fecha_Y_Hora_Pasaje = datetime.combine(var.Fecha_Subasta, var.HoraF_Subasta)
     Horas_Antes_Pasaje = Fecha_Y_Hora_Pasaje - timedelta(minutes = 5)
-    if (var.Estado_Subasta == False and (abs(datetime.now() - Horas_Antes_Pasaje) <= timedelta(minutes = 5))) :
+    if (var.Estado_Subasta == False ) :
       print((abs(datetime.now() - Horas_Antes_Pasaje) <= timedelta(minutes = 5)))
 
       #var.Estado_Subasta = True
@@ -149,7 +149,7 @@ def MSGnotificacionPago():
       Destinatario = 'i.dazbriones@gmail.com'#var.Dueño.email
       Pass = 'incluyeme123'
 
-      message = ("Hola Soy un Mensaje")
+      message = ("Felicitaciones, gano la subasta, su link para pagar es: http://127.0.0.1:8000/subasta/SubastaPagar/"+str(var.pk)+"/")
       subject = 'Recordatorio de viaje'
       message = 'Subject: {}\n\n{}'.format(subject, message)
 
