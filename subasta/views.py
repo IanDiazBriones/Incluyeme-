@@ -8,6 +8,7 @@ from django.shortcuts import redirect
 from datetime import date
 from datetime import datetime, timedelta
 import smtplib
+from background_task import background
 # Create your views here.
 def ListarSubasta(request):
 	subasta= Subasta.objects.all()
@@ -19,7 +20,7 @@ def SubastaDetalle(request, pk):
 	subasta = Subasta.objects.get(pk=pk) 
 	time1 = datetime.combine(datetime.now(), subasta.HoraF_Subasta)
 	TiempoMenos5Min = time1 - timedelta(minutes = 5)
-	TiempoRestante =  time1 - datetime.now()
+	TiempoRestante =  TiempoMenos5Min - datetime.now()
 	if TiempoRestante < timedelta(seconds = 0):
 		TiempoRestante = "Atrasado"
 
@@ -129,4 +130,32 @@ def EstadoRecibo(request, pk):
 	}
 	return render(request, 'subasta/subasta_EstadoRecibo.html', context)
 
+@background(schedule=5)
+def MSGnotificacionPago():
+  #Traer los objetos pasajes de la BD
+  Subastas= Subasta.objects.all()
+  #Por cada uno de los pasajes dentro del array
+  print ("Hola Mundo")
+  for var in Subastas:
+    #Condiciones que la fecha de hoy sea igual a la fecha de salida del pasaje
+    #y que no se enviara una notificacion anteriormente 
+    Fecha_Y_Hora_Pasaje = datetime.combine(var.Fecha_Subasta, var.HoraF_Subasta)
+    Horas_Antes_Pasaje = Fecha_Y_Hora_Pasaje - timedelta(minutes = 5)
+    if (var.Estado_Subasta == False and (abs(datetime.now() - Horas_Antes_Pasaje) <= timedelta(minutes = 5))) :
+      print((abs(datetime.now() - Horas_Antes_Pasaje) <= timedelta(minutes = 5)))
+
+      #var.Estado_Subasta = True
+      Remitente = 'milos.incluyeme@gmail.com'
+      Destinatario = 'i.dazbriones@gmail.com'#var.Dueño.email
+      Pass = 'incluyeme123'
+
+      message = ("Hola Soy un Mensaje")
+      subject = 'Recordatorio de viaje'
+      message = 'Subject: {}\n\n{}'.format(subject, message)
+
+      server = smtplib.SMTP('smtp.gmail.com', 587)
+      server.starttls()
+      server.login(Remitente, Pass)
+      server.sendmail(Remitente, Destinatario, message)
+      server.quit()
 
