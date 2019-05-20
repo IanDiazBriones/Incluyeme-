@@ -113,4 +113,18 @@ def EstadoPago(request, pk):
 	}
 	return render(request, 'subasta/subasta_EstadoPago.html', context)
 
+def EstadoRecibo(request, pk):
+	subasta = Subasta.objects.get(pk=pk)
+	time1 = datetime.combine(datetime.now(), subasta.HoraF_Subasta)
+	TiempoMenos5Min = time1 - timedelta(minutes = 5)
+	TiempoRestante =  time1 - datetime.now()
+	if TiempoRestante < timedelta(seconds = 0):
+		TiempoRestante = "Terminado"
+	context = {
+	'Subasta': subasta,
+	'TiempoMenos5Min': TiempoMenos5Min,
+	'TiempoRestante': TiempoRestante
+	}
+	return render(request, 'subasta/subasta_EstadoRecibo.html', context)
+
 
