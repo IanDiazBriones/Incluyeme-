@@ -49,3 +49,7 @@ coverage.xml
 # Sphinx documentation
 docs/_build/
 *.sqlite3
+pagStatic/__pycache__/urls.cpython-37.pyc
+pagStatic/__pycache__/urls.cpython-37.pyc
+subasta/__pycache__/views.cpython-37.pyc
+users/__pycache__/views.cpython-37.pyc
