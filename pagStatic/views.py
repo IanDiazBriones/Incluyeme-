@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from subasta.models import *
 
 # Create your views here.
 def index(request):
@@ -11,3 +12,8 @@ def WebPay(request, pk):
 def BancoLogin(request, pk):
 	context={'pk':pk}
 	return render(request, 'pagStatic/BancoLogin.html',context)
+
+def BancoPago(request, pk):
+	subasta= Subasta.objects.get(pk=pk)
+	context= {'Subasta': subasta}
+	return render(request, 'pagStatic/BancoPagar.html',context)
