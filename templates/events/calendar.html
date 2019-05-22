@@ -1,0 +1,44 @@
+{% extends 'pagStatic/header.html' %}
+{% block content %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+<style>
+table, th {
+  border: 1px solid black;
+  text-align: center;
+}
+
+td {
+  border: 1px solid black;
+  text-align: left;
+  vertical-align: top;
+}
+</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-8">
+        <h1 class="mt-2">{% trans "Calendario" %}</h1>
+        <hr class="mt-0 mb-4">
+     </div></div>
+     <div class="row justify-content-center">
+      <div class="col-3">
+            <a class="btn btn-primary btn-block" href="{% url 'events:calendar' %}?{{ previous_month }}" role="button">{% trans "Mes Anterior" %}</a>
+            </div>
+            <div class="col-3">
+            <a class="btn btn-primary btn-block" href="{% url 'profile' %}" role="button">{% trans "Volver a Mi perfil" %}</a>
+            </div>
+            <div class="col-3">
+            <a class="btn btn-primary btn-block" href="{% url 'events:calendar' %}?{{ next_month }}" role="button">{% trans "Mes Siguiente" %}</a>
+            </div>
+            </div>
+            <div class="col-3"><br></div>
+            <div class="col-3"><br></div>
+            <div class="col-3"><br></div>
+                {{ calendar }}
+
+</div>
+
+{% endblock %}
