@@ -11,6 +11,8 @@ urlpatterns = [
 	path('QR/<int:IdentificadorPas>/<int:IdentificadorUsu>/', views.CreateQRCode, name='QR'),
 	path('Protocolo', views.mostrarProtocolo, name='proto'),
 	path('MostrarProtocolo', views.mostrarImagenProtocolo, name='mostrar_image'),
+	path('retraso',views.ListarPatente, name='retrasobus'),
+	path('notificacion/<slug:elem>', views.notificacion, name='notificacion'),
 ]
 
 

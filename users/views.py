@@ -21,6 +21,11 @@ def Perfil(request):
   PasajesDespuesHoy= Pasaje.objects.filter(Fecha_Salida__gte=date.today())
   context= {'PasajesAntesHoy': PasajesAntesHoy,'PasajesDespuesHoy': PasajesDespuesHoy}
   return render(request, 'users/perfil.html', context)
+
+def ListarPatente(request):
+    bus = Bus.objects.all()
+    context = {'buses': bus}
+    return render(request, 'users/retraso_bus.html', context)
   
 def Valoraciones_a(request):
 	Pasajes= Pasaje.objects.all()
@@ -158,3 +163,36 @@ def SMSNotificacion2HRS():
 
       #Se actualiza el pasaje cambiando la variable de notificacion a True
       var.EnvioNotificacionHoras();
+def notificacion(request,elem):
+    # Traer los objetos pasajes de la BD
+    Pasajes = Pasaje.objects.all()
+    for var in Pasajes:
+        if var.PatenteBus.Patente == str(elem):
+            Remitente = 'milos.incluyeme@gmail.com'
+            Destinatario = var.Dueño.email
+            Pass = 'incluyeme123'
+
+            message = ("Hemos percibido un retraso por parte del conductor del bus: "+var.PatenteBus.Patente)
+            subject = 'Retraso'
+            message = 'Subject: {}\n\n{}'.format(subject, message)
+
+            server = smtplib.SMTP('smtp.gmail.com', 587)
+            server.starttls()
+            server.login(Remitente, Pass)
+            server.sendmail(Remitente, Destinatario, message)
+            server.quit()
+
+            #-------------------------------------------
+            #Codigo del envio del sms
+
+            print("Codigo Pasaje = " + str(var.Codigo))
+            account_sid = "ACb8609460a3a4d8621beba519f081a23b"
+            auth_token = "d39131e76c3d581954efbc1e8711e1dc"
+            client = Client(account_sid, auth_token)
+
+            message = client.messages.create(
+            to=str("+"+str(var.Dueño.telefono)),
+            from_="+13345106427",
+            body=("Hemos percibido un retraso por parte del conductor del bus: "+var.PatenteBus.Patente))
+
+            print(message.sid)

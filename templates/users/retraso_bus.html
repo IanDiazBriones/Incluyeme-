@@ -10,11 +10,8 @@
 <h1> Escoja patente del bus </h1>
 
 
+    <select id='scripts' name="Patente">
 
-{% endblock %}
-
-
-    <select name="Patente:">
     {% if buses %}
         {% for bus in buses %}
             <option>{{ bus.Patente }}</option>
@@ -24,4 +21,16 @@
     {% endif %}
 
     </select>
-    <input type="submit" value="Enviar">
+
+<button onclick = "Funcion()"> Enviar </button>
+<script>
+    function Funcion(){
+        var sel = document.getElementById('scripts').value;
+        //sel tiene el valor que puso el usuario
+        //ahora hay que enviar la notificacion a todos los que tengan
+        //pasaje con esa patente
+        window.open("http://127.0.0.1:8000/user/notificacion/"+document.getElementById('scripts').value)
+    }
+</script>
+
+{% endblock %}
