@@ -89,13 +89,13 @@ def SMSNotificacionDia():
       #Codigo del envio del sms
       
       print("Codigo Pasaje = " + str(var.Codigo))
-      account_sid = "AC84429c3da0aa504611715dc493a4da27"
-      auth_token = "54734ace15a8644e16cde985e0f895a4"
+      account_sid = "ACb8609460a3a4d8621beba519f081a23b"
+      auth_token = "d39131e76c3d581954efbc1e8711e1dc"
       client = Client(account_sid, auth_token)
 
       message = client.messages.create(
           to=str("+"+str(var.Dueño.telefono)),
-          from_="+56931402392",
+          from_="+13345106427",
           body=("Hoy es el dia de su viaje destino a: "+ var.Destino+ "Hora: "+str(var.Hora_Salida)+" Asiento: "+ str(var.Asiento))
       )
 
@@ -135,13 +135,13 @@ def SMSNotificacion2HRS():
       #Codigo del envio del sms
       
       #print("Codigo Pasaje = " + str(var.Codigo))
-      #account_sid = "AC84429c3da0aa504611715dc493a4da27"
-      #auth_token = "54734ace15a8644e16cde985e0f895a4"
+      #account_sid = "ACb8609460a3a4d8621beba519f081a23b"
+      #auth_token = "d39131e76c3d581954efbc1e8711e1dc"
       #client = Client(account_sid, auth_token)
 
       #message = client.messages.create(
           #to=str("+"+str(var.Dueño.telefono)),
-          #from_="+56931402392",
+          #from_="+13345106427",
           #body=("Hoy es el dia de su viaje destino a: "+ var.Destino+ "Hora: "+str(var.Hora_Salida)+" Asiento: "+ str(var.Asiento))
       #)
 

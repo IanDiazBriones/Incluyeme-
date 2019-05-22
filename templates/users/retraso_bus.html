@@ -7,7 +7,7 @@
 
 
 
-<h1> Escoja patente del bus </h1>
+<h1>     Simulado retraso de bus </h1>
 
 
     <select id='scripts' name="Patente">
@@ -32,5 +32,13 @@
         window.open("http://127.0.0.1:8000/user/notificacion/"+document.getElementById('scripts').value)
     }
 </script>
+
+ 		<div class="row justify-content-center">
+			<div>
+                <h1 align="center">
+                    <td class="text-center"><a class="btn btn-primary btn-block" href="{% url 'index' %}" role="button">{% trans "Ir a página de inicio" %}</a></td>
+                </h1>
+			</div>
+		</div>
 
 {% endblock %}
