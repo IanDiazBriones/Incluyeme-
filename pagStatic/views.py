@@ -1,9 +1,12 @@
 from django.shortcuts import render
 from subasta.models import *
-
+from django.shortcuts import redirect
 # Create your views here.
 def index(request):
 	return render(request, 'pagStatic/index.html')
+
+def FirstPage(request):
+	return redirect('user/login/')
 
 def WebPay(request, pk):
 	context={'pk':pk}
