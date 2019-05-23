@@ -74,7 +74,7 @@ def SubastaPuja(request, pk, pkUsu):
 	User = CustomUser.objects.get(pk=pkUsu)
 	subasta.Ultima_Puja = User
 	subasta.Pujar()
-	return redirect('http://127.0.0.1:8000/subasta/Detalle/'+str(pk)+'/')
+	return redirect('/subasta/Detalle/'+str(pk)+'/')
 
 def SubastaPagar(request, pk):
 
