@@ -45,12 +45,21 @@
 				</div>
 			</div>
 		</div>
+		{% if Subasta.Ultima_Puja != user %}
 		<div class="row justify-content-center">
 			<div class="col-md-4 col-lg-2">        
 				<a class="btn btn-primary btn-block" href="#" role="button" disabled>{{ Subasta.ValorSubastaActualizado }}</a>
 				<a class="btn btn-success btn-block" href="/subasta/SubastaPuja/{{ Subasta.pk }}/{{ user.pk }}/" role="button">{% trans "Pujar $500" %}</a>
 			</div>
 		</div>
+		{% endif %}
+		{% if Subasta.Ultima_Puja == user %}
+		<div class="row justify-content-center">
+			<div class="col-md-4 col-lg-2">        
+				<a class="btn btn-primary btn-block" href="#" role="button" disabled>{{ Subasta.ValorSubastaActualizado }}</a>
+			</div>
+		</div>
+		{% endif %}
 	</body>
 	</html>
 	{% endblock %}

@@ -14,5 +14,6 @@ class Subasta(models.Model):
     Ultima_Puja = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
 
     def Pujar(self):
-    	self.ValorSubastaActualizado = self.ValorSubastaActualizado + self.Puja
-    	self.save()
+        self.ValorSubastaActualizado = self.ValorSubastaActualizado + self.Puja
+        self.Estado_Puja = True
+        self.save()

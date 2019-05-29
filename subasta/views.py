@@ -142,7 +142,7 @@ def MSGnotificacionPago():
     #y que no se enviara una notificacion anteriormente 
     Fecha_Y_Hora_Pasaje = datetime.combine(var.Fecha_Subasta, var.HoraF_Subasta)
     Horas_Antes_Pasaje = Fecha_Y_Hora_Pasaje - timedelta(minutes = 5)
-    if (var.Estado_Subasta == False ) and (abs(datetime.now() - Horas_Antes_Pasaje) <= timedelta(minutes = 5)):
+    if (var.Estado_Subasta == False ) and (abs(datetime.now() - Horas_Antes_Pasaje) <= timedelta(minutes = 5) and (var.Estado_Puja == True)):
       var.Estado_Subasta == True
       print((abs(datetime.now() - Horas_Antes_Pasaje) <= timedelta(minutes = 5)))
 

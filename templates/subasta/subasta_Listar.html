@@ -33,6 +33,7 @@
           </thead>
           <tbody id="myTable">
             {% for Subasta in Subastas %}
+            {% if Subasta.Estado_Subasta == False %}
             <tr>
               <td class="text-center">{{ Subasta.Pasaje_A_Sub.Dueño.nombre }}</td>
               <td class="text-center">{{ Subasta.Pasaje_A_Sub.Destino }}</td>
@@ -40,6 +41,7 @@
               <td class="text-center">{{ Subasta.Pasaje_A_Sub.Valor  }}</td>
               <td class="text-center"><a class="btn btn-primary btn-block" href="/subasta/Detalle/{{ Subasta.pk }}/" role="button">{% trans "Ver" %}</a></td>       
             </tr>
+            {% endif %}
             {% endfor %}
           </tbody>
         </table>
