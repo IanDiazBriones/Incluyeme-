@@ -16,9 +16,10 @@
 		<div class="row justify-content-center">
 			<div class="col-8">
 				<div class="form-group">
-					<h4 class="mt-2" >{% trans "Ganador" %}</h1>
+                    <h4 class="mt-2" >{% trans "Ganador" %}></h4>
 				</div>
 			</div>
+        </div>
 		</div>
 		<div class="row justify-content-center">
 			<div class="col-8">
@@ -30,7 +31,7 @@
 		<div class="row justify-content-center">
 			<div class="col-8">
 				<div class="form-group">
-					<label for="exampleInputPassword1">Destino</label>
+					<label for="exampleInputPassword1">{% trans "Destino" %}</label>
 					<input class="form-control" id="exampleInputPassword1" placeholder="Valor Subasta Actual" value="{{ Subasta.Pasaje_A_Sub.Destino }}" disabled>
 				</div>
 			</div>
@@ -39,7 +40,7 @@
 		<div class="row justify-content-center">
 			<div class="col-8">
 				<div class="form-group">
-					<label for="exampleInputPassword1">Hora Salida</label>
+					<label for="exampleInputPassword1">{% trans "Hora de salida" %}</label>
 					<input class="form-control" id="exampleInputPassword1" placeholder="Valor Subasta Actual" value="{{ Subasta.Pasaje_A_Sub.Hora_Salida }}" disabled>
 				</div>
 			</div>
