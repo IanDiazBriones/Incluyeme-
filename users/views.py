@@ -26,7 +26,12 @@ def ListarPatente(request):
     bus = Bus.objects.all()
     context = {'buses': bus}
     return render(request, 'users/retraso_bus.html', context)
-  
+
+def Patente(request):
+    bus = Bus.objects.all()
+    context = {'buses':bus}
+    return render(request,'users/notificacion_Admin.html', context)
+
 def Valoraciones_a(request):
 	Pasajes= Pasaje.objects.all()
 	context= {'Pasajes': Pasajes}
@@ -51,6 +56,9 @@ def mostrarProtocolo(request):
 
 def mostrarImagenProtocolo(request):
     return render(request, 'users/imagen_protocolo.html')
+
+def mostrarUbicacion(request):
+    return render(request, 'users/ubicacion.html')
 
 def CreateQRCode(request, IdentificadorPas, IdentificadorUsu):
     Pasajes= Pasaje.objects.get(pk = IdentificadorPas)
@@ -194,5 +202,39 @@ def notificacion(request,elem):
             to=str("+"+str(var.Dueño.telefono)),
             from_="+13345106427",
             body=("Hemos percibido un retraso por parte del conductor del bus: "+var.PatenteBus.Patente))
+
+            print(message.sid)
+
+def notificacionA(request,elem):
+    # Traer los objetos pasajes de la BD
+    Pasajes = Pasaje.objects.all()
+    for var in Pasajes:
+        if var.PatenteBus.Patente == str(elem):
+            Remitente = 'milos.incluyeme@gmail.com'
+            Destinatario = var.Dueño.email
+            Pass = 'incluyeme123'
+
+            message = ("Le deseamos un excelente viaje!")
+            subject = 'Retraso'
+            message = 'Subject: {}\n\n{}'.format(subject, message)
+
+            server = smtplib.SMTP('smtp.gmail.com', 587)
+            server.starttls()
+            server.login(Remitente, Pass)
+            server.sendmail(Remitente, Destinatario, message)
+            server.quit()
+
+            #-------------------------------------------
+            #Codigo del envio del sms
+
+            print("Codigo Pasaje = " + str(var.Codigo))
+            account_sid = "ACb8609460a3a4d8621beba519f081a23b"
+            auth_token = "d39131e76c3d581954efbc1e8711e1dc"
+            client = Client(account_sid, auth_token)
+
+            message = client.messages.create(
+            to=str("+"+str(var.Dueño.telefono)),
+            from_="+13345106427",
+            body=("¡Le deseamos un excelente viaje!"))
 
             print(message.sid)
