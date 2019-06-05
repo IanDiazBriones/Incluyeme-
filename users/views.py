@@ -15,6 +15,11 @@ class SignUp(generic.CreateView):
     success_url = reverse_lazy('login')
     template_name = 'users/signup.html'
 
+def PeoresValoraciones(request):
+  Pasajes= Pasaje.objects.all().order_by('Valoracion')[:10]
+  context= {'Pasajes': Pasajes}
+  return render(request, 'users/PeoresValoraciones.html', context)
+
 # Create your views here.
 def Perfil(request):
   PasajesAntesHoy= Pasaje.objects.filter(Fecha_Salida__lte=date.today())

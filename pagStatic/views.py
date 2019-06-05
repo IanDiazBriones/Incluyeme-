@@ -3,7 +3,9 @@ from subasta.models import *
 from django.shortcuts import redirect
 # Create your views here.
 def index(request):
-	return render(request, 'pagStatic/index.html')
+	Pasajes= Pasaje.objects.all().order_by('-Valoracion')[:5]
+	context= {'Pasajes': Pasajes}
+	return render(request, 'pagStatic/index.html', context)
 
 def FirstPage(request):
 	return redirect('user/login/')
