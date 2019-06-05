@@ -13,6 +13,7 @@ urlpatterns = [
 	path('MostrarProtocolo', views.mostrarImagenProtocolo, name='mostrar_image'),
 	path('retraso',views.ListarPatente, name='retrasobus'),
 	path('notificacion/<slug:elem>', views.notificacion, name='notificacion'),
+	path('PeorValoracion/', views.PeoresValoraciones, name='PeoresValoraciones'),
 ]
 
 

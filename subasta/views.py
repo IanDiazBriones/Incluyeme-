@@ -58,6 +58,7 @@ def SubastaAdd(request, pk):
 		TiempoMenos5Min = time1 - timedelta(minutes = 5)
 		TiempoMenos5Min = datetime.time(TiempoMenos5Min)
 		TiempoRestante =  time1 - datetime.now()
+		subasta.ReactivarSub()
 		if TiempoRestante < timedelta(seconds = 0):
 			TiempoRestante = "Terminado"
 
@@ -75,6 +76,11 @@ def SubastaPuja(request, pk, pkUsu):
 	subasta.Ultima_Puja = User
 	subasta.Pujar()
 	return redirect('/subasta/Detalle/'+str(pk)+'/')
+
+def CancelarSub(request, idSub):
+	subasta = Subasta.objects.get(pk=idSub)
+	subasta.Cancelar()
+	return redirect('/user/perfil')
 
 def SubastaPagar(request, pk):
 

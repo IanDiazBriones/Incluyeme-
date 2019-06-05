@@ -17,3 +17,11 @@ class Subasta(models.Model):
         self.ValorSubastaActualizado = self.ValorSubastaActualizado + self.Puja
         self.Estado_Puja = True
         self.save()
+
+    def Cancelar(self):
+        self.Estado_Subasta = True
+        self.save()
+
+    def ReactivarSub(self):
+        self.Estado_Subasta = False
+        self.save()

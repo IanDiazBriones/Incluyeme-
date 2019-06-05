@@ -9,7 +9,8 @@ urlpatterns = [
 	path('SubastaPagar/<int:pk>/', views.SubastaPagar, name='PagarSubasta'),
 	path('SubastaResultado/<int:pk>/', views.SubastaResultado, name='ResultadoSubasta'),
 	path('EstadoPago/<int:pk>/', views.EstadoPago, name='EstadoPago'),
-	path('EstadoRecibo/<int:pk>/', views.EstadoRecibo, name='EstadoRecibo')
+	path('EstadoRecibo/<int:pk>/', views.EstadoRecibo, name='EstadoRecibo'),
+	path('CancelaSub/<int:idSub>/', views.CancelarSub, name='Cancela'),
 	]
 
 # Para que se empiece el proceso de tareas se debe ejecutar por consola "python manager.py process_tasks"
