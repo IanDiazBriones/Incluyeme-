@@ -12,10 +12,7 @@ urlpatterns = [
 	path('Protocolo', views.mostrarProtocolo, name='proto'),
 	path('MostrarProtocolo', views.mostrarImagenProtocolo, name='mostrar_image'),
 	path('retraso',views.ListarPatente, name='retrasobus'),
-	path('NotificacionPasajeros', views.Patente, name='NotificacionPasajeros'),
 	path('notificacion/<slug:elem>', views.notificacion, name='notificacion'),
-	path('notificacionAdmin/<slug:elem>', views.notificacionA, name='notificacionAdmin'),
-
 ]
 
 
