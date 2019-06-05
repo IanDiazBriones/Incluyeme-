@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-04 12:12-0400\n"
+"POT-Creation-Date: 2019-04-19 21:12-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,224 +18,54 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: .\Incluyeme\settings.py:138
+#: .\Incluyeme\settings.py:131
 msgid "Español"
 msgstr "Espagnol"
 
-#: .\Incluyeme\settings.py:139
+#: .\Incluyeme\settings.py:132
 msgid "Frances"
 msgstr "Français"
 
-#: .\Incluyeme\settings.py:140
-msgid "Inglés"
-msgstr ""
-
-#: .\templates\Foro\Foro.html:13
-msgid "Foro - ¡Opina sobre tu viaje!"
-msgstr "Forum - Donnez votre avis sur votre voyage!"
-
-#: .\templates\Foro\Foro.html:45 .\templates\users\QR.html:22
-#: .\templates\users\admin_v.html:45 .\templates\users\admin_v.html:67
-#: .\templates\users\perfil.html:124
-msgid "Volver atrás"
-msgstr "retourner en arrière"
-
-#: .\templates\events\calendar.html:23
-msgid "Calendario"
-msgstr "Calendrier"
-
-#: .\templates\events\calendar.html:28
-msgid "Mes Anterior"
-msgstr "Mois précédent"
-
-#: .\templates\events\calendar.html:31
-#, fuzzy
-#| msgid "Mi perfil"
-msgid "Volver a Mi perfil"
-msgstr "Mon profil"
-
-#: .\templates\events\calendar.html:34
-msgid "Mes Siguiente"
-msgstr "Mois prochain"
-
-#: .\templates\pagStatic\BancoLogin.html:12
-#: .\templates\pagStatic\BancoPagar.html:12
-msgid "Banco Estado"
-msgstr ""
-
-#: .\templates\pagStatic\WebPay.html:12
-msgid "WebPay"
-msgstr ""
-
-#: .\templates\pagStatic\index.html:30 .\templates\users\protocolo.html:30
+#: .\templates\pagStatic\index.html:30
 msgid "Ir"
 msgstr "Aller"
 
-#: .\templates\pagStatic\index.html:49 .\templates\pagStatic\index.html:51
-#: .\templates\users\perfil.html:11
+#: .\templates\pagStatic\index.html:48 .\templates\pagStatic\index.html:50
+#: .\templates\users\perfil.html:12
 msgid "Mi perfil"
 msgstr "Mon profil"
 
-#: .\templates\pagStatic\index.html:63 .\templates\users\protocolo.html:39
-#, fuzzy
-#| msgid "Ubicacion"
-msgid "Ubicación"
+#: .\templates\pagStatic\index.html:62
+msgid "Ubicacion"
 msgstr "Emplacement"
 
-#: .\templates\pagStatic\index.html:75
+#: .\templates\pagStatic\index.html:73
 msgid "Subastas"
 msgstr "enchères"
 
-#: .\templates\pagStatic\index.html:88
-msgid "Foro"
-msgstr "Forum"
-
 #: .\templates\registration\login.html:13
-#: .\templates\registration\login.html:21
+#: .\templates\registration\login.html:19
 msgid "Iniciar sesión"
 msgstr "Commencer la session"
-
-#: .\templates\registration\login.html:27 .\templates\users\signup.html:11
-#: .\templates\users\signup.html:17
-msgid "Registrarse"
-msgstr "S'inscrire"
-
-#: .\templates\subasta\Est_Subasta.html:12
-#, fuzzy
-#| msgid "Subastas"
-msgid "Estado Subasta"
-msgstr "enchères"
-
-#: .\templates\subasta\Est_Subasta.html:20
-#: .\templates\subasta\subasta_Pagar.html:19
-#: .\templates\subasta\subasta_verDetalle.html:35
-msgid "Tiempo restante"
-msgstr "Temps restant"
-
-#: .\templates\subasta\Est_Subasta.html:28
-#: .\templates\subasta\subasta_EstadoPago.html:35
-#, fuzzy
-#| msgid "Codigo"
-msgid "Código"
-msgstr "Code"
-
-#: .\templates\subasta\Est_Subasta.html:36
-#: .\templates\subasta\subasta_Listar.html:28
-#: .\templates\subasta\subasta_Resultado.html:34
-#: .\templates\subasta\subasta_verDetalle.html:19
-msgid "Destino"
-msgstr "La destination"
-
-#: .\templates\subasta\subasta_EstadoPago.html:12
-msgid "Estado Del Pago"
-msgstr "Statut de paiement"
-
-#: .\templates\subasta\subasta_EstadoPago.html:44
-#: .\templates\subasta\subasta_EstadoRecibo.html:52
-msgid "Método de pago"
-msgstr "Procédé de paiement"
-
-#: .\templates\subasta\subasta_EstadoPago.html:51
-msgid "Pagado"
-msgstr ""
-
-#: .\templates\subasta\subasta_EstadoRecibo.html:12
-#: .\templates\subasta\subasta_Resultado.html:12
-msgid "Resultado"
-msgstr "Résultat"
-
-#: .\templates\subasta\subasta_EstadoRecibo.html:19
-#, fuzzy
-#| msgid "Nombre"
-msgid "Nombre ganador"
-msgstr "Nom gagnant"
-
-#: .\templates\subasta\subasta_EstadoRecibo.html:27
-msgid "Fecha"
-msgstr "Date"
-
-#: .\templates\subasta\subasta_EstadoRecibo.html:59
-#, fuzzy
-#| msgid "Volver atrás"
-msgid "Volver al perfil"
-msgstr "retourner en arrière"
-
-#: .\templates\subasta\subasta_Listar.html:12
-#, fuzzy
-#| msgid "Subastas"
-msgid "Lista Subastas"
-msgstr "enchères"
-
-#: .\templates\subasta\subasta_Listar.html:27
-msgid "Dueño"
-msgstr "Propriétaire"
-
-#: .\templates\subasta\subasta_Listar.html:29
-msgid "Hora"
-msgstr "Heure"
-
-#: .\templates\subasta\subasta_Listar.html:30
-#, fuzzy
-#| msgid "Valorar"
-msgid "Valor"
-msgstr "Évaluer"
-
-#: .\templates\subasta\subasta_Listar.html:31
-#: .\templates\subasta\subasta_Listar.html:42
-msgid "Ver"
-msgstr "Regarder"
-
-#: .\templates\subasta\subasta_Pagar.html:12
-msgid "Pagar"
-msgstr "Payer"
-
-#: .\templates\subasta\subasta_Resultado.html:19
-msgid "Ganador"
-msgstr "Gagnant"
-
-#: .\templates\subasta\subasta_Resultado.html:43
-#: .\templates\subasta\subasta_verDetalle.html:27
-#, fuzzy
-#| msgid "Hora salida"
-msgid "Hora de salida"
-msgstr "Heure de sortie"
-
-#: .\templates\subasta\subasta_verDetalle.html:12
-#: .\templates\users\perfil.html:66
-#, fuzzy
-#| msgid "Subastas"
-msgid "Subasta"
-msgstr "enchères"
-
-#: .\templates\subasta\subasta_verDetalle.html:43
-msgid "Nombre última oferta"
-msgstr ""
-
-#: .\templates\subasta\subasta_verDetalle.html:52
-msgid "Pujar $500"
-msgstr ""
 
 #: .\templates\users\QR.html:14
 msgid "Su pasaje está siendo generado:"
 msgstr "Votre passage est généré:"
 
-#: .\templates\users\QR.html:23
-#, fuzzy
-#| msgid "Generar QR"
-msgid "Descargar QR"
-msgstr "Générer QR"
+#: .\templates\users\QR.html:22 .\templates\users\admin_v.html:45
+#: .\templates\users\admin_v.html:67
+msgid "Volver atrás"
+msgstr "retourner en arrière"
 
 #: .\templates\users\admin_v.html:13
 msgid "Estadisticas de los viajes"
 msgstr "Statistiques de voyage"
 
-#: .\templates\users\admin_v.html:21 .\templates\users\perfil.html:48
-#: .\templates\users\perfil.html:80
+#: .\templates\users\admin_v.html:21 .\templates\users\perfil.html:36
 msgid "Codigo"
 msgstr "Code"
 
-#: .\templates\users\admin_v.html:22 .\templates\users\perfil.html:49
-#: .\templates\users\perfil.html:81
+#: .\templates\users\admin_v.html:22 .\templates\users\perfil.html:37
 msgid "Asiento"
 msgstr "Siège"
 
@@ -247,8 +77,7 @@ msgstr "Date de sortie"
 msgid "Hora de Entrada"
 msgstr "Heure d'entrée"
 
-#: .\templates\users\admin_v.html:25 .\templates\users\perfil.html:52
-#: .\templates\users\perfil.html:84
+#: .\templates\users\admin_v.html:25 .\templates\users\perfil.html:40
 msgid "Valoracion"
 msgstr "Évaluation"
 
@@ -256,87 +85,50 @@ msgstr "Évaluation"
 msgid "No tienes permisos para entrar a este sitio"
 msgstr "Vous n'avez pas la permission d'entrer sur ce site "
 
-#: .\templates\users\imagen_protocolo.html:21
-msgid "Terminal Alameda"
-msgstr ""
-
-#: .\templates\users\imagen_protocolo.html:29
-msgid ""
-"En los módulos de 1 al 5 se encuentra con un total de 4 salidas de "
-"emergencia de la cuales 4 de ellas nos dirigen hacia lugares sin peligro. A "
-"las personas discapacitadas o mayores de edad, se atienden desde que entran "
-"al Terminal Alameda, que cuenta con puertas amplias. Si la persona no cuenta "
-"con facilidad para desplazarse, se facilita una silla de ruedas y se lleva "
-"al punto de ubicación de su viaje."
-msgstr ""
-"Dans les modules de 1 à 5, vous trouverez 4 sorties au totalL'urgence dont 4 "
-"d'entre eux nous mènent à des endroits sans danger.les personnes handicapées "
-"ou les adultes sont servis depuis leur entréeau terminal Alameda, qui a de "
-"larges portes, si la personne ne compte pasavec la facilité de se déplacer, "
-"un fauteuil roulant est facilité et portéau point de votre voyage."
-
 #: .\templates\users\normal_user_v.html:12
 msgid "Valore su viaje"
 msgstr "Evaluez votre voyage"
 
-#: .\templates\users\perfil.html:19
-msgid "Próximos viajes"
-msgstr "Prochains voyages"
-
-#: .\templates\users\perfil.html:20
-#, fuzzy
-#| msgid "Estadisticas de los viajes"
-msgid "Historial de viajes"
-msgstr "Statistiques de voyage"
-
-#: .\templates\users\perfil.html:50 .\templates\users\perfil.html:82
+#: .\templates\users\perfil.html:38
 msgid "Fecha salida"
 msgstr "Date de départ"
 
-#: .\templates\users\perfil.html:51 .\templates\users\perfil.html:83
+#: .\templates\users\perfil.html:39
 msgid "Hora salida"
 msgstr "Heure de sortie"
 
-#: .\templates\users\perfil.html:53 .\templates\users\perfil.html:85
+#: .\templates\users\perfil.html:41
 msgid "Bus patente"
 msgstr "Bus de brevets"
+
+#: .\templates\users\perfil.html:42 .\templates\users\perfil.html:55
+#: .\templates\users\perfil.html:57
+msgid "Valorar"
+msgstr "Évaluer"
 
 #: .\templates\users\perfil.html:59
 msgid "Generar QR"
 msgstr "Générer QR"
 
-#: .\templates\users\perfil.html:86 .\templates\users\perfil.html:98
-#: .\templates\users\perfil.html:100
-msgid "Valorar"
-msgstr "Évaluer"
-
-#: .\templates\users\perfil.html:114
+#: .\templates\users\perfil.html:72
 #, fuzzy
 #| msgid "Valoracion"
 msgid "Valoraciones"
 msgstr "Évaluation"
 
-#: .\templates\users\perfil.html:115
+#: .\templates\users\perfil.html:73
 #, fuzzy
 #| msgid "No hay usuarios"
 msgid "Datos de usuario"
 msgstr "Aucun utilisateur"
 
-#: .\templates\users\perfil.html:123
-msgid "Ver Calendario"
-msgstr "Voir le calendrier"
+#: .\templates\users\perfil.html:75
+msgid "Agregar pasaje"
+msgstr "Ajouter un passage"
 
-#: .\templates\users\protocolo.html:51
-msgid "Protocolo"
-msgstr "Protocole"
-
-#: .\templates\users\retraso_bus.html:20
-msgid "No hay patentes registradas"
-msgstr "Il n'y a pas de brevets enregistrés"
-
-#: .\templates\users\retraso_bus.html:39
-msgid "Ir a página de inicio"
-msgstr "Aller à la page d'accueil"
+#: .\templates\users\signup.html:11 .\templates\users\signup.html:17
+msgid "Registrarse"
+msgstr "S'inscrire"
 
 #: .\templates\users\user_list.html:12
 msgid "Usuario"
@@ -361,9 +153,6 @@ msgstr "Téléphone"
 #: .\templates\users\user_list.html:32
 msgid "No hay usuarios"
 msgstr "Aucun utilisateur"
-
-#~ msgid "Agregar pasaje"
-#~ msgstr "Ajouter un passage"
 
 #~ msgid "Cerrar Sesión"
 #~ msgstr "Fermer la session"

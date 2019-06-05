@@ -137,7 +137,6 @@ _ = lambda s: s
 LANGUAGES = (
     ('es', _('Español')),
     ('fr', _('Frances')),
-    ('en', _('Inglés')),
 )
 
 LOCALE_PATHS = (
