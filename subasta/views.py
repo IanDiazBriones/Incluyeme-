@@ -11,7 +11,7 @@ import smtplib
 from background_task import background
 # Create your views here.
 def ListarSubasta(request):
-	subasta= Subasta.objects.all()
+	subasta= Subasta.objects.all().order_by('ValorSubastaActualizado')
 	context= {'Subastas': subasta}
 	return render(request, 'subasta/subasta_Listar.html', context)
 
@@ -94,12 +94,34 @@ def SubastaPagar(request, pk):
 
 
 def SubastaResultado(request, pk):
-	subasta = Subasta.objects.get(pk=pk) 
+	subasta = Subasta.objects.get(pk=pk)
+	mensaje = "Su pasaje con destino a "+subasta.Pasaje_A_Sub.Destino+" sido vendido satisfactoriamente"
+	asunto = "Pasaje vendido satisfactoriamente"
+	EnvioCorreosSub(mensaje, asunto, subasta.Pasaje_A_Sub.Dueño.email)
+	mensaje = "Su pasaje adquirido en la subasta con destino a "+subasta.Pasaje_A_Sub.Destino+" fue comprado satisfactoriamente \nSu url para su codigo QR : http://127.0.0.1:8000/user/QR/"+str(subasta.Pasaje_A_Sub.pk)+"/"+str(subasta.Pasaje_A_Sub.Dueño.pk)+"/"
+	asunto = "Pasaje Comprado satisfactoriamente"
+	EnvioCorreosSub(mensaje, asunto, subasta.Ultima_Puja.email)
 	subasta.Pasaje_A_Sub.Dueño = subasta.Ultima_Puja
 	context = {
 	'Subasta': subasta,
 	}
 	return render(request, 'subasta/subasta_Resultado.html', context)
+
+def EnvioCorreosSub(mensaje, asunto, correo):
+	Remitente = 'milos.incluyeme@gmail.com'
+	print(correo)
+	Destinatario = correo
+	Pass = 'incluyeme123'
+
+	message = (mensaje)
+	subject = asunto
+	message = 'Subject: {}\n\n{}'.format(subject, message)
+
+	server = smtplib.SMTP('smtp.gmail.com', 587)
+	server.starttls()
+	server.login(Remitente, Pass)
+	server.sendmail(Remitente, Destinatario, message)
+	server.quit()
 
 def EstadoPago(request, pk):
 
