@@ -57,6 +57,9 @@ def mostrarProtocolo(request):
 def mostrarImagenProtocolo(request):
     return render(request, 'users/imagen_protocolo.html')
 
+def mostrarUbicacion(request):
+    return render(request, 'users/ubicacion.html')
+
 def CreateQRCode(request, IdentificadorPas, IdentificadorUsu):
     Pasajes= Pasaje.objects.get(pk = IdentificadorPas)
     Usuario= CustomUser.objects.get(pk = IdentificadorUsu)
