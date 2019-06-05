@@ -15,6 +15,7 @@ urlpatterns = [
 	path('NotificacionPasajeros', views.Patente, name='NotificacionPasajeros'),
 	path('notificacion/<slug:elem>', views.notificacion, name='notificacion'),
 	path('notificacionAdmin/<slug:elem>', views.notificacionA, name='notificacionAdmin'),
+	path('ubicacion', views.mostrarUbicacion, name='ubicacion'),
 
 ]
 
