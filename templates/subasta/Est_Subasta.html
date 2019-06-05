@@ -25,6 +25,13 @@
 		<div class="row justify-content-center">
 			<div class="col-8">
 				<div class="form-group">
+					<a class="btn btn-danger btn-block" href="/subasta/CancelaSub/{{ Subasta.pk }}/" role="button">Cancelar Subasta</a>
+				</div>
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-8">
+				<div class="form-group">
 					<label for="exampleInputPassword1">Codigo</label>
 					<input class="form-control" id="exampleInputPassword1" placeholder="Valor Subasta Actual" value="{{ Subasta.Pasaje_A_Sub.Codigo }}" disabled>
 				</div>
