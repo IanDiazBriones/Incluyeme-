@@ -16,7 +16,7 @@
 		<div class="row justify-content-center">
 			<div class="col-8">
 				<div class="form-group">
-					<label for="exampleInputPassword1">Nombre Ganador</label>
+					<label for="exampleInputPassword1">{% trans "Nombre ganador" %}</label>
 					<input class="form-control" id="exampleInputPassword1" placeholder="Valor Subasta Actual" value="{{ Subasta.Ultima_Puja.nombre }}" disabled>
 				</div>
 			</div>
@@ -24,7 +24,7 @@
 		<div class="row justify-content-center">
 			<div class="col-8">
 				<div class="form-group">
-					<label for="exampleInputPassword1">Fecha</label>
+					<label for="exampleInputPassword1">{% trans "Fecha" %}</label>
 					<input class="form-control" id="exampleInputPassword1" placeholder="Valor Subasta Actual" value="{{ Subasta.Fecha_Subasta }}" disabled>
 				</div>
 			</div>
@@ -49,14 +49,14 @@
 		<div class="row justify-content-center">
 			<div class="col-8">
 				<div class="form-group">
-					<label for="exampleInputPassword1">Metodo Pago</label>
+					<label for="exampleInputPassword1">{% trans "Método de pago" %}</label>
 					<input class="form-control" id="exampleInputPassword1" placeholder="Valor Subasta Actual" value="Debito" disabled>
 				</div>
 			</div>
 		</div>
 		<div class="row justify-content-center">
 			<div class="col-md-4 col-lg-2">        
-				<a class="btn btn-success btn-block" href="{% url 'profile' %}" role="button">Volver Al perfil</a>
+				<a class="btn btn-success btn-block" href="{% url 'profile' %}" role="button">{% trans "Volver al perfil" %}</a>
 			</div>
 		</div>
 	</body>
