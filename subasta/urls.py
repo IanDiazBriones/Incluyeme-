@@ -17,3 +17,4 @@ urlpatterns = [
 # repeat = cada cuanto se ejecutara la tarea en segundos
 # repeat_until = cuantas veces se repetira (None = para siempre)
 MSGnotificacionPago(repeat=10,repeat_until=None)
+MSGnotificacionPerdida(repeat=10,repeat_until=None)
