@@ -1,6 +1,6 @@
 from . import views
 from django.urls import path, include # new
-from .views import MSGnotificacionPago
+from .views import MSGnotificacionPago, MSGnotificacionPerdida
 urlpatterns = [
 	path('listar', views.ListarSubasta, name='ListarSubasta'),
 	path('Detalle/<int:pk>/', views.SubastaDetalle, name='DetalleSubasta'),

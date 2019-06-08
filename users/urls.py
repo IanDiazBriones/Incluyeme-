@@ -14,6 +14,9 @@ urlpatterns = [
 	path('retraso',views.ListarPatente, name='retrasobus'),
 	path('notificacion/<slug:elem>', views.notificacion, name='notificacion'),
 	path('PeorValoracion/', views.PeoresValoraciones, name='PeoresValoraciones'),
+	path('Llegada/', views.ListarPatentes, name='Llegada'),
+	path('notificacionLlegada/<slug:PatBus>/<slug:Anden>/<slug:Viaje>', views.notificacionLlegada, name='NotificacionLlegada'),
+	path('Discapacitados/', views.Discapacitados, name='Discapacitados'),
 ]
 
 

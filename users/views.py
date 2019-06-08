@@ -9,6 +9,7 @@ from datetime import date
 from datetime import datetime, timedelta
 from twilio.rest import Client
 import smtplib
+from django.shortcuts import redirect
 
 class SignUp(generic.CreateView):
     form_class = CustomUserCreationForm
@@ -31,6 +32,13 @@ def ListarPatente(request):
     bus = Bus.objects.all()
     context = {'buses': bus}
     return render(request, 'users/retraso_bus.html', context)
+
+def ListarPatentes(request):
+    bus = Bus.objects.all()
+    Pasajes= Pasaje.objects.all()
+    context = {'buses': bus,
+               'Pasajes': Pasajes}
+    return render(request, 'users/Localizacion_bus.html', context)
   
 def Valoraciones_a(request):
 	Pasajes= Pasaje.objects.all()
@@ -56,6 +64,9 @@ def mostrarProtocolo(request):
 
 def mostrarImagenProtocolo(request):
     return render(request, 'users/imagen_protocolo.html')
+
+def Discapacitados(request):
+    return render(request, 'users/imagen_Discapacitados.html')
 
 def CreateQRCode(request, IdentificadorPas, IdentificadorUsu):
     Pasajes= Pasaje.objects.get(pk = IdentificadorPas)
@@ -201,3 +212,39 @@ def notificacion(request,elem):
             body=("Hemos percibido un retraso por parte del conductor del bus: "+var.PatenteBus.Patente))
 
             print(message.sid)
+
+
+def notificacionLlegada(request,PatBus,Anden,Viaje):
+    # Traer los objetos pasajes de la BD
+    Pasajes = Pasaje.objects.all()
+    for var in Pasajes:
+      if var.PatenteBus.Patente == str(PatBus):
+        Remitente = 'milos.incluyeme@gmail.com'
+        Destinatario = var.Dueño.email
+        Pass = 'incluyeme123'
+
+        message = ("El bus de su viaje se encuentra en el anden : "+Anden)
+        subject = 'Llegada Bus'
+        message = 'Subject: {}\n\n{}'.format(subject, message)
+
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.starttls()
+        server.login(Remitente, Pass)
+        server.sendmail(Remitente, Destinatario, message)
+        server.quit()
+        print(var.Dueño.email)
+        #-------------------------------------------
+        #Codigo del envio del sms
+
+        print("Codigo Pasaje = " + str(var.Codigo))
+        account_sid = "ACb8609460a3a4d8621beba519f081a23b"
+        auth_token = "d39131e76c3d581954efbc1e8711e1dc"
+        client = Client(account_sid, auth_token)
+
+        message = client.messages.create(
+          to=str("+56971886277"),
+          from_="+13345106427",
+          body=("El bus de su viaje se encuentra en el anden : "+Anden))
+
+        print(message.sid)
+    return redirect('/user/Llegada')
