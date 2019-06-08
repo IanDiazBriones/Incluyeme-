@@ -1,6 +1,6 @@
 from . import views
 from django.urls import path, include # new
-from .views import MSGnotificacionPago
+from .views import MSGnotificacionPago, MSGnotificacionPerdida
 urlpatterns = [
 	path('listar', views.ListarSubasta, name='ListarSubasta'),
 	path('Detalle/<int:pk>/', views.SubastaDetalle, name='DetalleSubasta'),
@@ -17,3 +17,4 @@ urlpatterns = [
 # repeat = cada cuanto se ejecutara la tarea en segundos
 # repeat_until = cuantas veces se repetira (None = para siempre)
 MSGnotificacionPago(repeat=10,repeat_until=None)
+MSGnotificacionPerdida(repeat=10,repeat_until=None)
